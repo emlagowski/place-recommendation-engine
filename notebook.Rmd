@@ -1,18 +1,164 @@
 ---
 title: "Wykrywanie wzorców odwiedzanych miejsc w miastach."
 output:
-  html_notebook: default
   html_document: default
+  html_notebook: default
+  pdf_document: default
 ---
+**Wykrywanie wzorców odwiedzanych miejsc w różnych miastach np. Nowy Jork, a następnie przełożenie ich na Warszawę. **
+ 
+Zapoznałem się z przesłaną przez Pana pracą i pracami z jej bibliografii. Dotarłem do strony autorów publikacji z której pobrane były dane z Foursquare. 
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+[Zbiory danych](https://sites.google.com/site/yangdingqi/home/foursquare-dataset)
+https://rexdatascience.wordpress.com/author/rexjwoon/
+https://gist.github.com/emlagowski/89e48d7820bf7bd1c750d932a542c287
+https://www.kaggle.com/rjwoon/new-york-city-exploratory-analysis
+https://www.kaggle.com/chetanism/foursquare-nyc-and-tokyo-checkin-dataset
+https://www.kaggle.com/chetanism/foursquare-nyc-and-tokyo-checkin-dataset/version/2
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+https://www.r-bloggers.com/date-formats-in-r/
+
+
+Wygląda na to, że jest tam też większy zbiór danych. Dane wykorzystane w tej pracy mgr to "227,428 check-ins in New York", a jest tam też zbiór "33,278,683 checkins by 266,909 users on 3,680,126 venues (in 415 cities in 77 countries)". Wydaje mi się, że można spróbować wykryć reguły na wszystkich danych ze wszystkich miast, wybrać te powtarzające się na przestrzeni wielu miejsc, a następnie przenieść je na np. Warszawę. Dzięki temu mielibyśmy podstawy do tego, aby przenosić uzyskane reguły na inne miasta. 
+ 
+Na tej stronie znajduje się też zbiór danych o użytkownikach, ale zawarte w nim informacje są tylko dla Nowego Jorku i Tokyo. Są to informacje o płci, liczbie znajomych na Facebooku oraz liczbie śledzących na Twitterze. W przesłanej przez Pana pracy, dane o użytkownikach były generowane, a tutaj moglibyśmy skorzystać w części z rzeczywistych informacji. 
+ 
+Rozumiem, że ostatecznym wynikiem pracy ma być możliwość podpowiadania użytkownikowi następnych miejsc do których może się udać na podstawie historii jego lokalizacji i wykrytych przez nas reguł. Widzę dwa rozwiązania: 
+ 
+Wariant A - Surowa analiza i skrypty 
+  
+- analiza danych 
+- generowanie reguł 
+- napisanie jakiegoś skryptu który będzie na podstawie historii lokalizacji i wyznaczonych reguł podpowie następne miejsca 
+- przeprowadzenie testów i sprawdzenie wynikiem 
+ 
+Prawdopodobnie napisałbym większość rozwiązania w R. 
+ 
+Wariant B - Kompleksowe rozwiązanie: 
+
+- aplikacja mobilna (android) która zbiera lokalizacje i przesyła do serwera 
+- serwer który zbiera dane o lokalizacji od użytkownika i przesyła podpowiedzi o miejscach w odpowiedzi 
+- serwer zasilony wstępnie danymi z foursquare wyznacza reguły, ale dostaje też kolejne dane od użytkowników i na ich podstawie aktualizuje reguły 
+ 
+Tutaj powstaje aplikacja mobilna i serwer w Javie. Pytania do zweryfikowania, czy do wykrywania reguł można podpiąć to jakoś z R? Czy zastosować jakieś dedykowane narzędzie do Javy? 
+ 
+Oczywiście w wariancie B dochodzi dużo pracy dodatkowej nie związanej z analizą, regułami i podpowiedziami. Chyba nie pytałem o to wcześniej, dlatego chciałbym wiedzieć o którym wariancie Pan myślał? 
+ 
+---- 
+ 
+Nie ma sensu porywać się na wszystkie miasta. Zwłaszcza te chińskie / japońskie. Można się ograniczyć do kilku wybranych europejskich / amerykańskich. Również dlatego, żeby nie zatkać się danymi. 
+ 
+Dodatkowy feature do wydobycia na podstawie danych to popularność miejsc (liczba wystąpień miejsca w zbiorze). 
+ 
+Dodatkowe pomysły: 
+
+- Czy np. występowanie w okolicy rzek, parków ma znaczenie? 
+- Może do weryfikacji użyć danych studentki o lokalizacji studentów? 
+ 
+Wybór padł na wariant A, czyli skupienie się nad analizą danych i jak najlepszym podpowiadaniu miejsc. Całość może się zamknąć w R. 
+ 
+Algorytmy rekomendacji miejsc 
+Do tego jakiś algorytm do rekomendacji miejsc. Przyjrzeć się kilku takim algorytmom. Może jakaś modyfikacja w nim. 
+ 
+Keywords: 
+
+- Pattern mining 
+- Personalized location recommendation system 
+- Mining association rules 
+- xxx based co-location pattern mining
+
+# Dane ze wszystkich miast
 
 ```{r}
-plot(cars)
+data <- read.delim("./data/dataset_TIST2015/dataset_TIST2015_Cities.txt", fill = TRUE)
+colnames(data) <- c("CityName", "Latitude", "Longitude", "CountryCode", "CountryName", "CityType")
+str(data)
+
+citiesCountByCountry <- aggregate(CityName ~ CountryName, data, length)
+colnames(citiesCountByCountry) <- c("CountryName", "Cities")
+citiesCountByCountry[order(-citiesCountByCountry$Cities),]
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+# Dane dotyczące tylko NY
 
-When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+```{r}
+nyc <- read.table("./data/dataset_tsmc2014/dataset_TSMC2014_NYC.txt", sep="\t", stringsAsFactors = FALSE)
+colnames(nyc) <- c("userId","venueId","venueCategoryId","venueCategory","latitude","longitude","timezoneOffset","utcTimestamp")
+
+lct <- Sys.getlocale("LC_TIME"); Sys.setlocale("LC_TIME", "C")
+nyc$dateTime <- as.POSIXlt(nyc$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")
+nyc$timestamp <- as.integer(as.numeric(as.POSIXlt(nyc$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")))
+nyc$venueCategory <- str_replace_all(nyc$venueCategory, '[(\\/&)]', '-')
+#nyc$timestamp <- as.POSIXlt(nyc$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")
+#nyc <- nyc[order(nyc$userId,nyc$timestamp),]
+#write.table(nyc, "./data/dataset_tsmc2014/nyc.data", sep = "," , row.names = FALSE, col.names = FALSE )
+
+#str(nyc)
+
+#nyc_trs <- nyc[,c(1,10,3)]
+#nyc_trs <- nyc_trs[order(nyc_trs$userId, nyc_trs$timestamp),]
+#sapply(nyc_trs, class)
+#write.table(nyc_trs, "./data/dataset_tsmc2014/nyc_trs.data", sep = "," , row.names = FALSE, col.names = FALSE )
+
+#str(nyc_trs)
+
+#(max(nyc_trs$timestamp)-min(nyc_trs$timestamp))
+
+#checkinsByUser <- aggregate(UTC ~ UserID, nyc, length)
+#colnames(checkinsByUser) <- c("UserID", "Checkins")
+#checkinsByUser[order(-checkinsByUser$Checkins),]
+```
+
+```{r}
+library(arules)
+library(arulesSequences)
+
+mergedColumn <- paste(nyc$userId, nyc$timestamp, sep="=")
+nyc_wo_duplicates <- nyc[!duplicated(mergedColumn), ]
+
+nyc_wo_duplicates <- nyc_wo_duplicates[,c(1,10,4)]
+nyc_wo_duplicates <- nyc_wo_duplicates[order(nyc_wo_duplicates$userId, nyc_wo_duplicates$timestamp),]
+sapply(nyc_wo_duplicates, class)
+write.table(nyc_wo_duplicates, "./data/dataset_tsmc2014/nyc_wo_duplicates.data", sep = "," , row.names = FALSE, col.names = FALSE )
+
+dataSeq <- read_baskets(con = "./data/dataset_tsmc2014/nyc_wo_duplicates.data", sep = ",", info = c("sequenceID", "eventID"))
+
+#summary
+summary(dataSeq)
+str(dataSeq)
+
+#presenting data in data.frame form
+frameS =   as(dataSeq,"data.frame")
+View(frameS)
+
+#information about data concerning times 
+?timeFrequency
+timeSeq  = as(dataSeq,"timedsequences")
+freqT = timeFrequency(timeSeq, "times")
+freqT
+
+spanT= timeFrequency(timeSeq, "span")
+spanT
+
+#calculation of frequency of items
+?itemFrequency
+freqItem = itemFrequency(dataSeq)
+#str(freqItem)
+freqItem = sort(freqItem, decreasing = TRUE )
+
+head(freqItem,20)
+
+seqParam = new ("SPparameter",support = 0.2, maxsize = 6, mingap=1, maxgap = 170000, maxlen = 6)
+patSeq= cspade(dataSeq,seqParam, control = list(verbose = TRUE, tidLists = FALSE, summary= TRUE))
+summary(patSeq)
+#odkrycie reguł
+seqRules = ruleInduction(patSeq, confidence = 0.4)
+
+length(seqRules)
+#podsumowanie 
+summary(seqRules)
+#prezentacja przykładowych reguł
+inspect(head(seqRules,30))
+
+```
+

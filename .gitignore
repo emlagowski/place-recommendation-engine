@@ -34,3 +34,4 @@ vignettes/*.pdf
 
 # Data should be exluded from repository
 data/
+.Rproj.user
