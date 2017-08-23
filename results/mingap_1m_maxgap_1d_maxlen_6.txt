@@ -1,0 +1,173 @@
+lhs                                               rhs                                               support confidence     lift
+  1 <{"Home -private-"}>                           => <{"Home -private-"}>                           0.31578947  0.5826235 1.074925
+  2 <{"Home -private-"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.20406279  0.6461988 1.192220
+  3 <{"Subway"}>                                   => <{"Subway"}>                                   0.17266851  0.5054054 1.479335
+  4 <{"Home -private-"},
+     {"Home -private-"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.13758079  0.6742081 1.243897
+  5 <{"Home -private-"},
+     {"Food - Drink Shop"}>                        => <{"Home -private-"}>                           0.13111727  0.6513761 1.201772
+  6 <{"Home -private-"},
+     {"Bar"}>                                      => <{"Home -private-"}>                           0.12557710  0.5836910 1.076895
+  7 <{"Food - Drink Shop"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.12465374  0.5601660 1.033492
+  8 <{"Subway"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.11265005  0.6524064 1.909611
+  9 <{"College Academic Building"}>                => <{"College Academic Building"}>                0.10526316  0.3323615 1.049410
+ 10 <{"Home -private-"},
+     {"Coffee Shop"}>                              => <{"Home -private-"}>                           0.09233610  0.5882353 1.085279
+ 11 <{"Home -private-"},
+     {"Home -private-"},
+     {"Home -private-"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.09141274  0.6644295 1.225856
+ 12 <{"Home -private-"},
+     {"Office"}>                                   => <{"Home -private-"}>                           0.08679594  0.5433526 1.002472
+ 13 <{"Home -private-"},
+     {"Other Great Outdoors"}>                     => <{"Home -private-"}>                           0.08587258  0.5602410 1.033630
+ 14 <{"Subway"},
+     {"Subway"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.08125577  0.7213115 2.111298
+ 15 <{"Home -private-"},
+     {"Subway"}>                                   => <{"Home -private-"}>                           0.08033241  0.6590909 1.216006
+ 16 <{"Home -private-"},
+     {"Food - Drink Shop"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.08033241  0.6126761 1.130372
+ 17 <{"Home -private-"},
+     {"Neighborhood"}>                             => <{"Home -private-"}>                           0.08033241  0.6083916 1.122467
+ 18 <{"Neighborhood"},
+     {"Neighborhood"}>                             => <{"Neighborhood"}>                             0.07848569  0.5345912 1.221439
+ 19 <{"Home -private-"},
+     {"Drugstore - Pharmacy"}>                     => <{"Home -private-"}>                           0.07571560  0.6029412 1.112411
+ 20 <{"Home -private-"},
+     {"Home -private-"},
+     {"Food - Drink Shop"}>                        => <{"Home -private-"}>                           0.07479224  0.7641509 1.409839
+ 21 <{"Train Station"},
+     {"Train Station"},
+     {"Train Station"}>                            => <{"Train Station"}>                            0.07479224  0.5912409 1.042856
+ 22 <{"Subway"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.07386888  0.6106870 1.126702
+ 23 <{"Home -private-"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.07386888  0.6060606 1.773956
+ 24 <{"Home -private-"},
+     {"Deli - Bodega"}>                            => <{"Home -private-"}>                           0.07386888  0.5755396 1.061856
+ 25 <{"Home -private-"},
+     {"Pizza Place"}>                              => <{"Home -private-"}>                           0.07294552  0.6030534 1.112618
+ 26 <{"Subway"},
+     {"Train Station"}>                            => <{"Subway"}>                                   0.07294552  0.5984848 1.751781
+ 27 <{"Deli - Bodega"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.07202216  0.5909091 1.090212
+ 28 <{"Home -private-"},
+     {"Bar"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.07202216  0.5735294 1.058147
+ 29 <{"Home -private-"},
+     {"Train Station"}>                            => <{"Home -private-"}>                           0.07109880  0.6695652 1.235331
+ 30 <{"Home -private-"},
+     {"Bank"}>                                     => <{"Home -private-"}>                           0.06925208  0.6250000 1.153109
+ 31 <{"Subway"},
+     {"Home -private-"}>                           => <{"Subway"}>                                   0.06925208  0.5725191 1.675779
+ 32 <{"Subway"},
+     {"Train Station"}>                            => <{"Train Station"}>                            0.06925208  0.5681818 1.002184
+ 33 <{"Bus Station"},
+     {"Bus Station"}>                              => <{"Bus Station"}>                              0.06925208  0.4687500 1.161685
+ 34 <{"Home -private-"},
+     {"Home -private-"},
+     {"Bar"}>                                      => <{"Home -private-"}>                           0.06832872  0.6607143 1.219001
+ 35 <{"Train Station"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.06832872  0.5873016 1.719048
+ 36 <{"Residential Building -Apartment - Condo-"},
+     {"Residential Building -Apartment - Condo-"}> => <{"Residential Building -Apartment - Condo-"}> 0.06740536  0.5214286 1.397790
+ 37 <{"Home -private-"},
+     {"Bus Station"}>                              => <{"Home -private-"}>                           0.06648199  0.5901639 1.088837
+ 38 <{"Home -private-"},
+     {"Home -private-"},
+     {"Home -private-"},
+     {"Home -private-"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.06371191  0.6969697 1.285891
+ 39 <{"Home -private-"},
+     {"Building"}>                                 => <{"Home -private-"}>                           0.06371191  0.6000000 1.106985
+ 40 <{"Subway"},
+     {"Subway"},
+     {"Subway"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.06278855  0.7727273 2.261794
+ 41 <{"Home -private-"},
+     {"Road"}>                                     => <{"Home -private-"}>                           0.06094183  0.6734694 1.242534
+ 42 <{"Subway"},
+     {"Office"}>                                   => <{"Subway"}>                                   0.06094183  0.5789474 1.694595
+ 43 <{"Home -private-"},
+     {"Fast Food Restaurant"}>                     => <{"Home -private-"}>                           0.05909511  0.6153846 1.135369
+ 44 <{"Home -private-"},
+     {"Medical Center"}>                           => <{"Home -private-"}>                           0.05909511  0.5981308 1.103536
+ 45 <{"Home -private-"},
+     {"Bus Station"}>                              => <{"Bus Station"}>                              0.05817175  0.5163934 1.279758
+ 46 <{"Bus Station"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.05724838  0.5904762 1.728340
+ 47 <{"Road"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.05724838  0.5585586 1.030526
+ 48 <{"Subway"},
+     {"Bus Station"}>                              => <{"Subway"}>                                   0.05724838  0.5391304 1.578049
+ 49 <{"Other Great Outdoors"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.05632502  0.6853933 2.006165
+ 50 <{"Home -private-"},
+     {"Movie Theater"}>                            => <{"Home -private-"}>                           0.05540166  0.5769231 1.064408
+ 51 <{"Home -private-"},
+     {"Clothing Store"}>                           => <{"Home -private-"}>                           0.05540166  0.5607477 1.034565
+ 52 <{"Home -private-"},
+     {"Bar"},
+     {"Bar"}>                                      => <{"Home -private-"}>                           0.05540166  0.5607477 1.034565
+ 53 <{"Subway"},
+     {"Bar"}>                                      => <{"Subway"}>                                   0.05540166  0.4166667 1.219595
+ 54 <{"Ferry"}>                                    => <{"Ferry"}>                                    0.05540166  0.2727273 1.342562
+ 55 <{"Subway"},
+     {"Subway"},
+     {"Train Station"}>                            => <{"Subway"}>                                   0.05447830  0.7468354 2.186008
+ 56 <{"Home -private-"},
+     {"Subway"},
+     {"Subway"}>                                   => <{"Home -private-"}>                           0.05447830  0.7375000 1.360669
+ 57 <{"Office"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.05447830  0.5514019 1.613968
+ 58 <{"Home -private-"},
+     {"Department Store"}>                         => <{"Home -private-"}>                           0.05447830  0.5462963 1.007903
+ 59 <{"University"}>                               => <{"College Academic Building"}>                0.05447830  0.3241758 1.023564
+ 60 <{"Home -private-"},
+     {"Residential Building -Apartment - Condo-"}> => <{"Home -private-"}>                           0.05355494  0.5686275 1.049103
+ 61 <{"Coffee Shop"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.05355494  0.5523810 1.616834
+ 62 <{"Food - Drink Shop"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.05355494  0.5272727 1.543342
+ 63 <{"Subway"},
+     {"Coffee Shop"}>                              => <{"Subway"}>                                   0.05355494  0.4677419 1.369093
+ 64 <{"Home -private-"},
+     {"Home -private-"},
+     {"Coffee Shop"}>                              => <{"Home -private-"}>                           0.05263158  0.6477273 1.195040
+ 65 <{"Other Great Outdoors"},
+     {"Home -private-"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.05263158  0.6263736 1.155643
+ 66 <{"Subway"},
+     {"Neighborhood"}>                             => <{"Subway"}>                                   0.05263158  0.5588235 1.635692
+ 67 <{"Subway"},
+     {"Train Station"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.05170822  0.7088608 2.074855
+ 68 <{"Home -private-"},
+     {"Home -private-"},
+     {"Other Great Outdoors"}>                     => <{"Home -private-"}>                           0.05170822  0.6666667 1.229983
+ 69 <{"College Academic Building"},
+     {"College Academic Building"}>                => <{"College Academic Building"}>                0.05170822  0.4912281 1.551020
+ 70 <{"Subway"},
+     {"Subway"},
+     {"Subway"},
+     {"Subway"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.05078486  0.8088235 2.367448
+ 71 <{"Home -private-"},
+     {"Home -private-"},
+     {"Food - Drink Shop"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.05078486  0.6790123 1.252760
+ 72 <{"Home -private-"},
+     {"Gas Station - Garage"}>                     => <{"Home -private-"}>                           0.05078486  0.6395349 1.179926
+ 73 <{"Home -private-"},
+     {"Other Great Outdoors"},
+     {"Home -private-"}>                           => <{"Home -private-"}>                           0.05078486  0.5913978 1.091114
+ 74 <{"Bar"},
+     {"Subway"}>                                   => <{"Subway"}>                                   0.05078486  0.4583333 1.341554
+ 75 <{"Subway"},
+     {"Food - Drink Shop"}>                        => <{"Subway"}>                                   0.05078486  0.4545455 1.330467 

@@ -1,8 +1,8 @@
 ---
 title: "Wykrywanie wzorców odwiedzanych miejsc w miastach."
 output:
-  html_document: default
   html_notebook: default
+  html_document: default
   pdf_document: default
 ---
 **Wykrywanie wzorców odwiedzanych miejsc w różnych miastach np. Nowy Jork, a następnie przełożenie ich na Warszawę. **
@@ -79,39 +79,20 @@ colnames(citiesCountByCountry) <- c("CountryName", "Cities")
 citiesCountByCountry[order(-citiesCountByCountry$Cities),]
 ```
 
-# Dane dotyczące tylko NY
+# Przygotowanie zbioru danych - tylko New York
 
 ```{r}
+library(stringr)
+lct <- Sys.getlocale("LC_TIME"); Sys.setlocale("LC_TIME", "C")
+
 nyc <- read.table("./data/dataset_tsmc2014/dataset_TSMC2014_NYC.txt", sep="\t", stringsAsFactors = FALSE)
 colnames(nyc) <- c("userId","venueId","venueCategoryId","venueCategory","latitude","longitude","timezoneOffset","utcTimestamp")
-
-lct <- Sys.getlocale("LC_TIME"); Sys.setlocale("LC_TIME", "C")
+#nyc <- nyc[nyc$venueCategoryId != '4bf58dd8d48988d103941735',]
 nyc$dateTime <- as.POSIXlt(nyc$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")
 nyc$timestamp <- as.integer(as.numeric(as.POSIXlt(nyc$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")))
 nyc$venueCategory <- str_replace_all(nyc$venueCategory, '[(\\/&)]', '-')
-#nyc$timestamp <- as.POSIXlt(nyc$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")
-#nyc <- nyc[order(nyc$userId,nyc$timestamp),]
-#write.table(nyc, "./data/dataset_tsmc2014/nyc.data", sep = "," , row.names = FALSE, col.names = FALSE )
 
-#str(nyc)
-
-#nyc_trs <- nyc[,c(1,10,3)]
-#nyc_trs <- nyc_trs[order(nyc_trs$userId, nyc_trs$timestamp),]
-#sapply(nyc_trs, class)
-#write.table(nyc_trs, "./data/dataset_tsmc2014/nyc_trs.data", sep = "," , row.names = FALSE, col.names = FALSE )
-
-#str(nyc_trs)
-
-#(max(nyc_trs$timestamp)-min(nyc_trs$timestamp))
-
-#checkinsByUser <- aggregate(UTC ~ UserID, nyc, length)
-#colnames(checkinsByUser) <- c("UserID", "Checkins")
-#checkinsByUser[order(-checkinsByUser$Checkins),]
-```
-
-```{r}
-library(arules)
-library(arulesSequences)
+# Usuwanie duplikatów z eventID
 
 mergedColumn <- paste(nyc$userId, nyc$timestamp, sep="=")
 nyc_wo_duplicates <- nyc[!duplicated(mergedColumn), ]
@@ -119,46 +100,74 @@ nyc_wo_duplicates <- nyc[!duplicated(mergedColumn), ]
 nyc_wo_duplicates <- nyc_wo_duplicates[,c(1,10,4)]
 nyc_wo_duplicates <- nyc_wo_duplicates[order(nyc_wo_duplicates$userId, nyc_wo_duplicates$timestamp),]
 sapply(nyc_wo_duplicates, class)
-write.table(nyc_wo_duplicates, "./data/dataset_tsmc2014/nyc_wo_duplicates.data", sep = "," , row.names = FALSE, col.names = FALSE )
 
-dataSeq <- read_baskets(con = "./data/dataset_tsmc2014/nyc_wo_duplicates.data", sep = ",", info = c("sequenceID", "eventID"))
+# Zapis transakcji do pliku
+nyc_transactions_filepath <- "./data/dataset_tsmc2014/nyc_wo_duplicates.data"
+write.table(nyc_wo_duplicates, nyc_transactions_filepath, sep = "," , row.names = FALSE, col.names = FALSE )
+```
+
+# Read transactions from file
+```{r}
+library(arules)
+library(arulesSequences)
+
+dataSeq <- read_baskets(con = nyc_transactions_filepath, sep = ",", info = c("sequenceID", "eventID"))
 
 #summary
 summary(dataSeq)
 str(dataSeq)
+```
 
+# Some extra informations about dataset
+```{r}
 #presenting data in data.frame form
-frameS =   as(dataSeq,"data.frame")
+frameS =   as(dataSeq, "data.frame")
 View(frameS)
 
 #information about data concerning times 
-?timeFrequency
 timeSeq  = as(dataSeq,"timedsequences")
 freqT = timeFrequency(timeSeq, "times")
-freqT
 
 spanT= timeFrequency(timeSeq, "span")
-spanT
 
 #calculation of frequency of items
-?itemFrequency
 freqItem = itemFrequency(dataSeq)
-#str(freqItem)
+str(freqItem)
 freqItem = sort(freqItem, decreasing = TRUE )
-
 head(freqItem,20)
+```
 
-seqParam = new ("SPparameter",support = 0.2, maxsize = 6, mingap=1, maxgap = 170000, maxlen = 6)
-patSeq= cspade(dataSeq,seqParam, control = list(verbose = TRUE, tidLists = FALSE, summary= TRUE))
-summary(patSeq)
+# Mining sequence rules
+```{r}
+second = 1
+minute = 60 * second
+hour = 60 * minute
+day = 24 * hour
+seqParam = new ("SPparameter", support = 0.1, maxsize = 6, mingap = 1 * day, maxgap = 10 * day, maxlen = 6)
+patSeq = cspade(dataSeq, seqParam, control = list(verbose = TRUE, tidLists = FALSE, summary= TRUE))
+#summary(patSeq)
 #odkrycie reguł
-seqRules = ruleInduction(patSeq, confidence = 0.4)
+seqRules = ruleInduction(patSeq, confidence = 0.1)
 
-length(seqRules)
+sortedRules <- subset(sort(sort(seqRules, decreasing = TRUE, na.last = NA, by = "confidence"), decreasing = TRUE, na.last = NA, by = "support"), subset =  lift > 1.0)
+#sortedRules <- sort(sort(seqRules, decreasing = TRUE, na.last = NA, by = "confidence"), decreasing = TRUE, na.last = NA, by = "support")
+inspect(head(sortedRules, 100))
+
+#length(seqRules)
 #podsumowanie 
-summary(seqRules)
+#summary(seqRules)
 #prezentacja przykładowych reguł
-inspect(head(seqRules,30))
+#inspect(head(seqRules,30))
+
+# seqRules.df <- data.frame(lhs = labels(lhs(seqRules)), rhs = labels(rhs(seqRules)), seqRules@quality, stringsAsFactors = FALSE)
+# seqRules_lr_diff <- subset(seqRules.df, rhs!=lhs)
+# seqRules_lr_diff <- subset(seqRules_lr_diff, rhs!=lhs)
+# seqRules_lr_diff <- seqRules_lr_diff[order(-seqRules_lr_diff$support, -seqRules_lr_diff$confidence),]
+#head(seqRules_lr_diff, 30)
 
 ```
 
+
+```{r}
+
+```

@@ -1,0 +1,293 @@
+lhs                           rhs                          support confidence     lift
+   1 <{"Office"}>               => <{"Office"}>               0.4238227  0.6585366 1.023235
+   2 <{"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.4182825  0.7282958 1.268078
+   3 <{"Home -private-"}>       => <{"Home -private-"}>       0.3878116  0.7155026 1.320084
+   4 <{"Office"},
+      {"Office"}>               => <{"Office"}>               0.3490305  0.8235294 1.279602
+   5 <{"Home -private-"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.3259464  0.8404762 1.550657
+   6 <{"Gym - Fitness Center"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.3259464  0.7792494 1.356796
+   7 <{"Office"},
+      {"Bar"}>                  => <{"Office"}>               0.3185596  0.7187500 1.116795
+   8 <{"Bar"},
+      {"Office"}>               => <{"Office"}>               0.3167128  0.6971545 1.083240
+   9 <{"Office"},
+      {"Office"},
+      {"Office"}>               => <{"Office"}>               0.3074792  0.8809524 1.368826
+  10 <{"Home -private-"},
+      {"Home -private-"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.2927054  0.8980170 1.656818
+  11 <{"Bar"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.2890120  0.7211982 1.255720
+  12 <{"Gym - Fitness Center"},
+      {"Bar"}>                  => <{"Gym - Fitness Center"}> 0.2880886  0.7205543 1.254599
+  13 <{"Office"},
+      {"Office"},
+      {"Office"},
+      {"Office"}>               => <{"Office"}>               0.2797784  0.9099099 1.413820
+  14 <{"Home -private-"},
+      {"Home -private-"},
+      {"Home -private-"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.2714681  0.9274448 1.711112
+  15 <{"Gym - Fitness Center"},
+      {"Gym - Fitness Center"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.2696214  0.8271955 1.440278
+  16 <{"Office"},
+      {"Office"},
+      {"Bar"}>                  => <{"Office"}>               0.2668513  0.8652695 1.344457
+  17 <{"Food - Drink Shop"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.2650046  0.7863014 1.450706
+  18 <{"Office"},
+      {"Bar"},
+      {"Office"}>               => <{"Office"}>               0.2631579  0.8260870 1.283576
+  19 <{"Bar"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.2576177  0.7045455 1.299868
+  20 <{"Home -private-"},
+      {"Bar"}>                  => <{"Home -private-"}>       0.2566944  0.7146530 1.318516
+  21 <{"Bar"},
+      {"Office"},
+      {"Office"}>               => <{"Office"}>               0.2557710  0.8075802 1.254820
+  22 <{"Home -private-"},
+      {"Home -private-"},
+      {"Home -private-"},
+      {"Home -private-"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.2548476  0.9387755 1.732017
+  23 <{"Office"},
+      {"Office"},
+      {"Office"},
+      {"Office"},
+      {"Office"}>               => <{"Office"}>               0.2530009  0.9042904 1.405088
+  24 <{"Home -private-"},
+      {"Food - Drink Shop"}>    => <{"Home -private-"}>       0.2483841  0.7707736 1.422058
+  25 <{"Gym - Fitness Center"},
+      {"Gym - Fitness Center"},
+      {"Gym - Fitness Center"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.2400739  0.8904110 1.550346
+  26 <{"Food - Drink Shop"},
+      {"Office"}>               => <{"Office"}>               0.2363804  0.6666667 1.035868
+  27 <{"Office"},
+      {"Food - Drink Shop"}>    => <{"Office"}>               0.2354571  0.6781915 1.053775
+  28 <{"Bar"},
+      {"Office"},
+      {"Bar"}>                  => <{"Office"}>               0.2336103  0.7086835 1.101154
+  29 <{"Gym - Fitness Center"},
+      {"Bar"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.2280702  0.7916667 1.378416
+  30 <{"Office"},
+      {"Office"},
+      {"Bar"},
+      {"Office"}>               => <{"Office"}>               0.2271468  0.8512111 1.322613
+  31 <{"Gym - Fitness Center"},
+      {"Gym - Fitness Center"},
+      {"Bar"}>                  => <{"Gym - Fitness Center"}> 0.2271468  0.7909968 1.377250
+  32 <{"Bar"},
+      {"Gym - Fitness Center"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.2271468  0.7859425 1.368450
+  33 <{"Office"},
+      {"Bar"},
+      {"Bar"}>                  => <{"Office"}>               0.2262235  0.6824513 1.060394
+  34 <{"Office"},
+      {"Bar"},
+      {"Office"},
+      {"Office"}>               => <{"Office"}>               0.2243767  0.8526316 1.324821
+  35 <{"Bar"},
+      {"Office"},
+      {"Office"},
+      {"Office"}>               => <{"Office"}>               0.2234534  0.8736462 1.357473
+  36 <{"Office"},
+      {"Coffee Shop"}>          => <{"Office"}>               0.2234534  0.6954023 1.080517
+  37 <{"Coffee Shop"},
+      {"Office"}>               => <{"Office"}>               0.2234534  0.6648352 1.033022
+  38 <{"Office"},
+      {"Office"},
+      {"Office"},
+      {"Bar"}>                  => <{"Office"}>               0.2225300  0.8795620 1.366665
+  39 <{"Food - Drink Shop"},
+      {"Home -private-"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.2197599  0.8292683 1.529979
+  40 <{"Home -private-"},
+      {"Home -private-"},
+      {"Bar"}>                  => <{"Home -private-"}>       0.2188366  0.8494624 1.567236
+  41 <{"Bar"},
+      {"Bar"},
+      {"Office"}>               => <{"Office"}>               0.2179132  0.6941176 1.078521
+  42 <{"Home -private-"},
+      {"Food - Drink Shop"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.2169898  0.8736059 1.611781
+  43 <{"Food - Drink Shop"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.2169898  0.6871345 1.196409
+  44 <{"Subway"}>               => <{"Subway"}>               0.2169898  0.6351351 1.859058
+  45 <{"Bar"},
+      {"Bar"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.2160665  0.7428571 1.293431
+  46 <{"Gym - Fitness Center"},
+      {"Food - Drink Shop"}>    => <{"Gym - Fitness Center"}> 0.2160665  0.6704871 1.167424
+  47 <{"Bar"},
+      {"Home -private-"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.2151431  0.8351254 1.540785
+  48 <{"Home -private-"},
+      {"Home -private-"},
+      {"Food - Drink Shop"}>    => <{"Home -private-"}>       0.2142198  0.8656716 1.597142
+  49 <{"Home -private-"},
+      {"Bar"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.2142198  0.8345324 1.539691
+  50 <{"American Restaurant"},
+      {"Office"}>               => <{"Office"}>               0.2132964  0.7241379 1.125167
+  51 <{"Coffee Shop"},
+      {"Coffee Shop"},
+      {"Coffee Shop"}>          => <{"Coffee Shop"}>          0.2114497  0.7387097 1.001280
+  52 <{"Gym - Fitness Center"},
+      {"Bar"},
+      {"Bar"}>                  => <{"Gym - Fitness Center"}> 0.2096030  0.7322581 1.274977
+  53 <{"Gym - Fitness Center"},
+      {"Gym - Fitness Center"},
+      {"Gym - Fitness Center"},
+      {"Gym - Fitness Center"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.2077562  0.8653846 1.506771
+  54 <{"Coffee Shop"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.2077562  0.7211538 1.255642
+  55 <{"Park"},
+      {"Office"}>               => <{"Office"}>               0.2077562  0.7075472 1.099388
+  56 <{"Bar"},
+      {"Gym - Fitness Center"},
+      {"Bar"}>                  => <{"Gym - Fitness Center"}> 0.2068329  0.7466667 1.300064
+  57 <{"Office"},
+      {"American Restaurant"}>  => <{"Office"}>               0.2068329  0.7044025 1.094502
+  58 <{"Bar"},
+      {"Office"},
+      {"Office"},
+      {"Office"},
+      {"Office"}>               => <{"Office"}>               0.2059095  0.9214876 1.431809
+  59 <{"Gym - Fitness Center"},
+      {"Office"}>               => <{"Gym - Fitness Center"}> 0.2059095  0.7359736 1.281446
+  60 <{"Office"},
+      {"Office"},
+      {"Bar"},
+      {"Office"},
+      {"Office"}>               => <{"Office"}>               0.2049861  0.9024390 1.402212
+  61 <{"Office"},
+      {"Bar"},
+      {"Office"},
+      {"Office"},
+      {"Office"}>               => <{"Office"}>               0.2022161  0.9012346 1.400340
+  62 <{"American Restaurant"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.2012927  0.7171053 1.248593
+  63 <{"Office"},
+      {"Office"},
+      {"Office"},
+      {"Bar"},
+      {"Office"}>               => <{"Office"}>               0.2003693  0.9004149 1.399067
+  64 <{"Gym - Fitness Center"},
+      {"Coffee Shop"}>          => <{"Gym - Fitness Center"}> 0.2003693  0.6718266 1.169756
+  65 <{"Neighborhood"}>         => <{"Neighborhood"}>         0.2003693  0.4578059 1.046000
+  66 <{"Office"},
+      {"Office"},
+      {"Office"},
+      {"Office"},
+      {"Bar"}>                  => <{"Office"}>               0.1975993  0.9029536 1.403011
+  67 <{"Bar"},
+      {"Office"},
+      {"Office"},
+      {"Bar"}>                  => <{"Office"}>               0.1975993  0.8699187 1.351681
+  68 <{"Gym - Fitness Center"},
+      {"American Restaurant"}>  => <{"Gym - Fitness Center"}> 0.1957525  0.6860841 1.194581
+  69 <{"Food - Drink Shop"},
+      {"Home -private-"},
+      {"Home -private-"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.1948292  0.8865546 1.635671
+  70 <{"Office"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.1948292  0.7009967 1.220546
+  71 <{"Office"},
+      {"Park"}>                 => <{"Office"}>               0.1948292  0.6872964 1.067923
+  72 <{"Bar"},
+      {"Gym - Fitness Center"},
+      {"Gym - Fitness Center"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.1939058  0.8536585 1.486354
+  73 <{"Other Great Outdoors"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.1929825  0.7946768 1.466158
+  74 <{"Coffee Shop"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.1929825  0.7108844 1.311563
+  75 <{"Home -private-"},
+      {"Coffee Shop"}>          => <{"Home -private-"}>       0.1929825  0.6920530 1.276820
+  76 <{"Home -private-"},
+      {"Home -private-"},
+      {"Food - Drink Shop"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.1920591  0.8965517 1.654115
+  77 <{"Home -private-"},
+      {"Food - Drink Shop"},
+      {"Home -private-"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.1920591  0.8851064 1.632999
+  78 <{"Home -private-"},
+      {"Home -private-"},
+      {"Home -private-"},
+      {"Bar"}>                  => <{"Home -private-"}>       0.1911357  0.8884120 1.639097
+  79 <{"Office"},
+      {"Office"},
+      {"Coffee Shop"}>          => <{"Office"}>               0.1911357  0.8553719 1.329079
+  80 <{"Home -private-"},
+      {"Other Great Outdoors"}> => <{"Home -private-"}>       0.1911357  0.8054475 1.486030
+  81 <{"Home -private-"},
+      {"Bar"},
+      {"Home -private-"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.1902124  0.8879310 1.638210
+  82 <{"Office"},
+      {"Office"},
+      {"Bar"},
+      {"Bar"}>                  => <{"Office"}>               0.1902124  0.8512397 1.322658
+  83 <{"Office"},
+      {"Bar"},
+      {"Office"},
+      {"Bar"}>                  => <{"Office"}>               0.1902124  0.8273092 1.285475
+  84 <{"Office"},
+      {"Gym - Fitness Center"}> => <{"Office"}>               0.1902124  0.6843854 1.063399
+  85 <{"Coffee Shop"},
+      {"Office"},
+      {"Office"}>               => <{"Office"}>               0.1892890  0.8471074 1.316237
+  86 <{"Gym - Fitness Center"},
+      {"Office"}>               => <{"Office"}>               0.1892890  0.6765677 1.051252
+  87 <{"Home -private-"},
+      {"Home -private-"},
+      {"Home -private-"},
+      {"Food - Drink Shop"}>    => <{"Home -private-"}>       0.1883657  0.8793103 1.622305
+  88 <{"Home -private-"},
+      {"Home -private-"},
+      {"Bar"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.1883657  0.8607595 1.588079
+  89 <{"Park"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.1883657  0.7472527 1.378662
+  90 <{"Gym - Fitness Center"},
+      {"Gym - Fitness Center"},
+      {"Bar"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.1874423  0.8252033 1.436809
+  91 <{"Gym - Fitness Center"},
+      {"Bar"},
+      {"Gym - Fitness Center"},
+      {"Gym - Fitness Center"}> => <{"Gym - Fitness Center"}> 0.1874423  0.8218623 1.430992
+  92 <{"Office"},
+      {"Food - Drink Shop"},
+      {"Office"}>               => <{"Office"}>               0.1874423  0.7960784 1.236948
+  93 <{"Food - Drink Shop"},
+      {"Office"},
+      {"Office"}>               => <{"Office"}>               0.1865189  0.7890625 1.226047
+  94 <{"Bar"},
+      {"Home -private-"},
+      {"Home -private-"},
+      {"Home -private-"}>       => <{"Home -private-"}>       0.1855956  0.8626609 1.591587
+  95 <{"Bar"},
+      {"Office"},
+      {"Bar"},
+      {"Office"}>               => <{"Office"}>               0.1855956  0.7944664 1.234443
+  96 <{"Office"},
+      {"Bar"},
+      {"Bar"},
+      {"Office"}>               => <{"Office"}>               0.1846722  0.8163265 1.268410
+  97 <{"Office"},
+      {"Office"},
+      {"Food - Drink Shop"}>    => <{"Office"}>               0.1846722  0.7874016 1.223466
+  98 <{"Bus Station"}>          => <{"Bus Station"}>          0.1846722  0.4576659 1.134216
+  99 <{"Home -private-"},
+      {"Park"}>                 => <{"Home -private-"}>       0.1837488  0.7184116 1.325451
+ 100 <{"Office"},
+      {"Coffee Shop"},
+      {"Office"}>               => <{"Office"}>               0.1819021  0.8140496 1.264872

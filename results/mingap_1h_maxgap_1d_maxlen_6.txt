@@ -1,0 +1,92 @@
+lhs                                               rhs                                               support confidence     lift
+ 1 <{"Home -private-"}>                           => <{"Home -private-"}>                           0.30932595  0.5706985 1.052924
+ 2 <{"Home -private-"},
+    {"Home -private-"}>                           => <{"Home -private-"}>                           0.20036934  0.6477612 1.195103
+ 3 <{"Subway"}>                                   => <{"Subway"}>                                   0.15697138  0.4594595 1.344850
+ 4 <{"Home -private-"},
+    {"Home -private-"},
+    {"Home -private-"}>                           => <{"Home -private-"}>                           0.13388735  0.6682028 1.232817
+ 5 <{"Home -private-"},
+    {"Food - Drink Shop"}>                        => <{"Home -private-"}>                           0.12373038  0.6291080 1.160688
+ 6 <{"Home -private-"},
+    {"Bar"}>                                      => <{"Home -private-"}>                           0.12003693  0.5777778 1.065985
+ 7 <{"Subway"},
+    {"Subway"}>                                   => <{"Subway"}>                                   0.10064635  0.6411765 1.876741
+ 8 <{"Home -private-"},
+    {"Home -private-"},
+    {"Home -private-"},
+    {"Home -private-"}>                           => <{"Home -private-"}>                           0.08771930  0.6551724 1.208776
+ 9 <{"Home -private-"},
+    {"Coffee Shop"}>                              => <{"Home -private-"}>                           0.08679594  0.5628743 1.038489
+10 <{"Home -private-"},
+    {"Office"}>                                   => <{"Home -private-"}>                           0.08402585  0.5449102 1.005345
+11 <{"Home -private-"},
+    {"Other Great Outdoors"}>                     => <{"Home -private-"}>                           0.08125577  0.5500000 1.014736
+12 <{"Home -private-"},
+    {"Subway"}>                                   => <{"Home -private-"}>                           0.07756233  0.6511628 1.201379
+13 <{"Home -private-"},
+    {"Neighborhood"}>                             => <{"Home -private-"}>                           0.07109880  0.5500000 1.014736
+14 <{"Subway"},
+    {"Home -private-"}>                           => <{"Home -private-"}>                           0.06925208  0.5859375 1.081040
+15 <{"Home -private-"},
+    {"Drugstore - Pharmacy"}>                     => <{"Home -private-"}>                           0.06925208  0.5769231 1.064408
+16 <{"Home -private-"},
+    {"Food - Drink Shop"},
+    {"Home -private-"}>                           => <{"Home -private-"}>                           0.06925208  0.5597015 1.032635
+17 <{"Subway"},
+    {"Subway"},
+    {"Subway"}>                                   => <{"Subway"}>                                   0.06832872  0.6788991 1.987156
+18 <{"Home -private-"},
+    {"Train Station"}>                            => <{"Home -private-"}>                           0.06832872  0.6548673 1.208213
+19 <{"Home -private-"},
+    {"Home -private-"},
+    {"Food - Drink Shop"}>                        => <{"Home -private-"}>                           0.06740536  0.7300000 1.346831
+20 <{"Deli - Bodega"},
+    {"Home -private-"}>                           => <{"Home -private-"}>                           0.06740536  0.5793651 1.068914
+21 <{"Neighborhood"},
+    {"Neighborhood"}>                             => <{"Neighborhood"}>                             0.06740536  0.4932432 1.126967
+22 <{"Home -private-"},
+    {"Bank"}>                                     => <{"Home -private-"}>                           0.06648199  0.6545455 1.207620
+23 <{"Home -private-"},
+    {"Pizza Place"}>                              => <{"Home -private-"}>                           0.06648199  0.5669291 1.045970
+24 <{"Subway"},
+    {"Home -private-"}>                           => <{"Subway"}>                                   0.06648199  0.5625000 1.646453
+25 <{"Home -private-"},
+    {"Subway"}>                                   => <{"Subway"}>                                   0.06648199  0.5581395 1.633690
+26 <{"Home -private-"},
+    {"Bar"},
+    {"Home -private-"}>                           => <{"Home -private-"}>                           0.06648199  0.5538462 1.021832
+27 <{"Residential Building -Apartment - Condo-"},
+    {"Residential Building -Apartment - Condo-"}> => <{"Residential Building -Apartment - Condo-"}> 0.06463527  0.5223881 1.400362
+28 <{"Home -private-"},
+    {"Home -private-"},
+    {"Bar"}>                                      => <{"Home -private-"}>                           0.06278855  0.6355140 1.172507
+29 <{"Subway"},
+    {"Train Station"}>                            => <{"Subway"}>                                   0.06278855  0.5913043 1.730764
+30 <{"Home -private-"},
+    {"Bus Station"}>                              => <{"Home -private-"}>                           0.06186519  0.5630252 1.038767
+31 <{"Bus Station"},
+    {"Bus Station"}>                              => <{"Bus Station"}>                              0.06001847  0.4779412 1.184463
+32 <{"Home -private-"},
+    {"Home -private-"},
+    {"Home -private-"},
+    {"Home -private-"},
+    {"Home -private-"}>                           => <{"Home -private-"}>                           0.05909511  0.6736842 1.242930
+33 <{"Home -private-"},
+    {"Road"}>                                     => <{"Home -private-"}>                           0.05724838  0.6391753 1.179262
+34 <{"Home -private-"},
+    {"Fast Food Restaurant"}>                     => <{"Home -private-"}>                           0.05724838  0.6078431 1.121455
+35 <{"Home -private-"},
+    {"Building"}>                                 => <{"Home -private-"}>                           0.05724838  0.5585586 1.030526
+36 <{"Home -private-"},
+    {"Medical Center"}>                           => <{"Home -private-"}>                           0.05540166  0.5660377 1.044325
+37 <{"Home -private-"},
+    {"Movie Theater"}>                            => <{"Home -private-"}>                           0.05355494  0.5800000 1.070085
+38 <{"Road"},
+    {"Home -private-"}>                           => <{"Home -private-"}>                           0.05355494  0.5471698 1.009514
+39 <{"Train Station"},
+    {"Subway"}>                                   => <{"Subway"}>                                   0.05355494  0.5043478 1.476240
+40 <{"Home -private-"},
+    {"Residential Building -Apartment - Condo-"}> => <{"Home -private-"}>                           0.05078486  0.5670103 1.046120
+41 <{"Bus Station"},
+    {"Subway"}>                                   => <{"Subway"}>                                   0.05078486  0.5612245 1.642719
