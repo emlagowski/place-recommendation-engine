@@ -85,25 +85,73 @@ citiesCountByCountry[order(-citiesCountByCountry$Cities),]
 library(stringr)
 lct <- Sys.getlocale("LC_TIME"); Sys.setlocale("LC_TIME", "C")
 
-nyc <- read.table("./data/dataset_tsmc2014/dataset_TSMC2014_NYC.txt", sep="\t", stringsAsFactors = FALSE)
+nyc <- read.table("./data/dataset_tsmc2014/dataset_TSMC2014_NYC.txt", sep="\t", stringsAsFactors = TRUE)
 colnames(nyc) <- c("userId","venueId","venueCategoryId","venueCategory","latitude","longitude","timezoneOffset","utcTimestamp")
 #nyc <- nyc[nyc$venueCategoryId != '4bf58dd8d48988d103941735',]
 nyc$dateTime <- as.POSIXlt(nyc$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")
 nyc$timestamp <- as.integer(as.numeric(as.POSIXlt(nyc$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")))
 nyc$venueCategory <- str_replace_all(nyc$venueCategory, '[(\\/&)]', '-')
 
+venueFreq <- data.frame(table(nyc$venueId))
+nyc$venuePopularity = venueFreq$Freq[match(nyc$venueId, venueFreq$Var1)]
+venueCategoryFreq <- data.frame(table(nyc$venueCategoryId))
+nyc$venueCategoryPopularity = venueCategoryFreq$Freq[match(nyc$venueCategoryId, venueCategoryFreq$Var1)]
+nyc$venyePopularityToCategory = nyc$venuePopularity / nyc$venueCategoryPopularity 
+allEvents <- nrow(nyc)
+nyc$venyePopularityToAll = nyc$venuePopularity / allEvents
+
+# 1. wybierz metodę
+#discretizeMethod <- "frequency"
+discretizeMethod <- "interval"
+
+# 2. wybierzilośc stopni
+categories <- c("super_low", "low", "medium", "high", "super_high")
+#categories <- c("low", "medium", "high")
+
+categoriesLen <- length(categories)
+
+nyc$venuePopularityToCategoryDiscrete <- discretize(nyc$venyePopularityToCategory, categories = categoriesLen, method = discretizeMethod, labels = categories)
+summary(nyc$venuePopularityToCategoryDiscrete)
+nyc$venuePopularityToAllDiscrete <- discretize(nyc$venyePopularityToAll, categories = categoriesLen, method = discretizeMethod, labels = categories)
+summary(nyc$venyePopularityToAllDiscrete)
+
+# 3. wybierz stopniowanie toAll / toCategory
+nyc$MERGED = paste(nyc$venueCategory, nyc$venuePopularityToCategoryDiscrete, sep="=")
+#nyc$MERGED = paste(nyc$venueCategory, nyc$venuePopularityToAllDiscrete, sep="=")
+
 # Usuwanie duplikatów z eventID
 
 mergedColumn <- paste(nyc$userId, nyc$timestamp, sep="=")
 nyc_wo_duplicates <- nyc[!duplicated(mergedColumn), ]
 
-nyc_wo_duplicates <- nyc_wo_duplicates[,c(1,10,4)]
+# 4. wybierz czy używana będzie popularność
+# with MERGED
+nyc_wo_duplicates <- nyc_wo_duplicates[,c(1,10,17)]
+# with VenueCategory
+#nyc_wo_duplicates <- nyc_wo_duplicates[,c(1,10,4)]
 nyc_wo_duplicates <- nyc_wo_duplicates[order(nyc_wo_duplicates$userId, nyc_wo_duplicates$timestamp),]
 sapply(nyc_wo_duplicates, class)
 
 # Zapis transakcji do pliku
 nyc_transactions_filepath <- "./data/dataset_tsmc2014/nyc_wo_duplicates.data"
 write.table(nyc_wo_duplicates, nyc_transactions_filepath, sep = "," , row.names = FALSE, col.names = FALSE )
+
+print('venyePopularityToCategory')
+summary(nyc$venyePopularityToCategory)
+plot(nyc$venyePopularityToCategory)
+#hist(nyc$venyePopularityToCategory)
+print('venyePopularityToAll')
+summary(nyc$venyePopularityToAll)
+plot(nyc$venyePopularityToAll)
+#hist(nyc$venyePopularityToAll)
+print('venuePopularityToCategoryDiscrete')
+summary(nyc$venuePopularityToCategoryDiscrete)
+plot(nyc$venuePopularityToCategoryDiscrete)
+#hist(nyc$venuePopularityToCategoryDiscrete)
+print('venuePopularityToAllDiscrete')
+summary(nyc$venuePopularityToAllDiscrete)
+plot(nyc$venuePopularityToAllDiscrete)
+#hist(nyc$venuePopularityToAllDiscrete)
 ```
 
 # Read transactions from file
@@ -114,8 +162,8 @@ library(arulesSequences)
 dataSeq <- read_baskets(con = nyc_transactions_filepath, sep = ",", info = c("sequenceID", "eventID"))
 
 #summary
-summary(dataSeq)
-str(dataSeq)
+#summary(dataSeq)
+#str(dataSeq)
 ```
 
 # Some extra informations about dataset
@@ -143,7 +191,7 @@ second = 1
 minute = 60 * second
 hour = 60 * minute
 day = 24 * hour
-seqParam = new ("SPparameter", support = 0.1, maxsize = 6, mingap = 1 * day, maxgap = 10 * day, maxlen = 6)
+seqParam = new ("SPparameter", support = 0.1, maxsize = 6, mingap = 1 * minute, maxgap = 2 * day, maxlen = 6)
 patSeq = cspade(dataSeq, seqParam, control = list(verbose = TRUE, tidLists = FALSE, summary= TRUE))
 #summary(patSeq)
 #odkrycie reguł

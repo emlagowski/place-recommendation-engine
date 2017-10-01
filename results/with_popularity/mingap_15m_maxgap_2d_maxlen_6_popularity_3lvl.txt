@@ -1,0 +1,19 @@
+lhs                                  rhs                                 support confidence     lift
+1 <{"Home -private-=low"}>          => <{"Home -private-=low"}>          0.3056325  0.5817223 1.107215
+2 <{"Home -private-=low"},
+ {"Home -private-=low"}>          => <{"Home -private-=low"}>          0.2271468  0.7432024 1.414566
+3 <{"Home -private-=low"},
+ {"Home -private-=low"},
+ {"Home -private-=low"}>          => <{"Home -private-=low"}>          0.1689751  0.7439024 1.415899
+4 <{"Gym - Fitness Center=medium"}> => <{"Gym - Fitness Center=medium"}> 0.1671283  0.4931880 1.455375
+5 <{"Home -private-=low"},
+ {"Home -private-=low"},
+ {"Home -private-=low"},
+ {"Home -private-=low"}>          => <{"Home -private-=low"}>          0.1274238  0.7540984 1.435305
+6 <{"Office=medium"}>               => <{"Office=medium"}>               0.1218837  0.6534653 3.503480
+7 <{"Subway=low"}>                  => <{"Subway=low"}>                  0.1154201  0.4355401 1.643519
+8 <{"Subway=medium"}>               => <{"Subway=medium"}>               0.1135734  0.4408602 1.711296
+9 <{"Subway=low"}>                  => <{"Subway=medium"}>               0.1089566  0.4111498 1.595969
+10 <{"Bus Station=low"}>             => <{"Bus Station=low"}>             0.1034164  0.3274854 1.037037
+11 <{"Home -private-=low"},
+ {"Food - Drink Shop=low"}>       => <{"Home -private-=low"}>          0.1006464  0.6337209 1.206186 

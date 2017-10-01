@@ -1,0 +1,23 @@
+[1] "venyePopularityToCategory"
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max.
+0.0000652 0.0028694 0.0083440 0.0412754 0.0297547 3.0000000
+[1] "venyePopularityToAll"
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max.
+4.397e-06 2.638e-05 8.354e-05 2.289e-04 2.242e-04 5.043e-03
+
+
+Dla "frequency"
+[1] "venuePopularityToCategoryDiscrete"
+ super_low        low     medium       high super_high
+     45643      45349      45479      45512      45445
+[1] "venuePopularityToAllDiscrete"
+ super_low        low     medium       high super_high
+     47960      45077      44262      45249      44880
+
+Dla "interval"
+[1] "venuePopularityToCategoryDiscrete"
+ super_low        low     medium       high super_high
+    226016       1274         97         29         12
+[1] "venuePopularityToAllDiscrete"
+ super_low        low     medium       high super_high
+    220276       2363       2768        874       1147 

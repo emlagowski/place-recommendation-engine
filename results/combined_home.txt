@@ -1,0 +1,20 @@
+5 <{"Home -private-"},
+   {"Food - Drink Shop"}>                        => <{"Home -private-"}>                           0.12373038  0.6291080 1.160688
+6 <{"Home -private-"},
+   {"Bar"}>                                      => <{"Home -private-"}>                           0.12003693  0.5777778 1.065985
+9 <{"Home -private-"},
+   {"Coffee Shop"}>                              => <{"Home -private-"}>                           0.08679594  0.5628743 1.038489
+10 <{"Home -private-"},
+   {"Office"}>                                   => <{"Home -private-"}>                           0.08402585  0.5449102 1.005345
+11 <{"Home -private-"},
+   {"Other Great Outdoors"}>                     => <{"Home -private-"}>                           0.08125577  0.5500000 1.014736
+12 <{"Home -private-"},
+   {"Subway"}>                                   => <{"Home -private-"}>                           0.07756233  0.6511628 1.201379
+13 <{"Home -private-"},
+   {"Neighborhood"}>                             => <{"Home -private-"}>                           0.07109880  0.5500000 1.014736
+17 <{"Home -private-"},
+   {"Home -private-"},
+   {"Food - Drink Shop"}>                        => <{"Home -private-"}>                           0.12373038  0.8023952 1.480399
+20 <{"Home -private-"},
+   {"Food - Drink Shop"},
+   {"Home -private-"}>                           => <{"Home -private-"}>                           0.11911357  0.7371429 1.360010

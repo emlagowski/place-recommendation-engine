@@ -290,4 +290,4 @@ lhs                           rhs                          support confidence   
       {"Park"}>                 => <{"Home -private-"}>       0.1837488  0.7184116 1.325451
  100 <{"Office"},
       {"Coffee Shop"},
-      {"Office"}>               => <{"Office"}>               0.1819021  0.8140496 1.264872
+      {"Office"}>               => <{"Office"}>               0.1819021  0.8140496 1.264872 

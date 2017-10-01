@@ -1,0 +1,45 @@
+lhs                                                         rhs                                                        support confidence     lift
+  1 <{"Home -private-=super_low"}>                           => <{"Home -private-=super_low"}>                           0.3259464  0.6465201 1.282383
+  2 <{"Home -private-=super_low"},
+     {"Home -private-=super_low"}>                           => <{"Home -private-=super_low"}>                           0.2437673  0.7478754 1.483423
+  3 <{"Home -private-=super_low"},
+     {"Home -private-=super_low"},
+     {"Home -private-=super_low"}>                           => <{"Home -private-=super_low"}>                           0.2031394  0.8333333 1.652930
+  4 <{"Home -private-=super_low"},
+     {"Home -private-=super_low"},
+     {"Home -private-=super_low"},
+     {"Home -private-=super_low"}>                           => <{"Home -private-=super_low"}>                           0.1735919  0.8545455 1.695005
+  5 <{"Home -private-=super_low"},
+     {"Home -private-=super_low"},
+     {"Home -private-=super_low"},
+     {"Home -private-=super_low"},
+     {"Home -private-=super_low"}>                           => <{"Home -private-=super_low"}>                           0.1551247  0.8936170 1.772504
+  6 <{"Office=super_low"},
+     {"Office=super_low"}>                                   => <{"Office=super_low"}>                                   0.1486611  0.6571429 1.235565
+  7 <{"Gym - Fitness Center=medium"}>                        => <{"Gym - Fitness Center=medium"}>                        0.1440443  0.5693431 2.250360
+  8 <{"Office=low"}>                                         => <{"Office=low"}>                                         0.1191136  0.6028037 3.050638
+  9 <{"Gym - Fitness Center=low"}>                           => <{"Gym - Fitness Center=low"}>                           0.1172669  0.5570175 2.645833
+ 10 <{"Gym - Fitness Center=high"}>                          => <{"Gym - Fitness Center=high"}>                          0.1144968  0.6595745 3.799570
+ 11 <{"Bar=super_low"},
+     {"Home -private-=super_low"}>                           => <{"Home -private-=super_low"}>                           0.1135734  0.5747664 1.140059
+ 12 <{"Bus Station=super_low"}>                              => <{"Bus Station=super_low"}>                              0.1135734  0.3929712 1.359706
+ 13 <{"Gym - Fitness Center=medium"},
+     {"Gym - Fitness Center=medium"}>                        => <{"Gym - Fitness Center=medium"}>                        0.1126500  0.7820513 3.091101
+ 14 <{"Food - Drink Shop=super_low"},
+     {"Home -private-=super_low"}>                           => <{"Home -private-=super_low"}>                           0.1117267  0.7034884 1.395381
+ 15 <{"Coffee Shop=super_low"},
+     {"Home -private-=super_low"}>                           => <{"Home -private-=super_low"}>                           0.1117267  0.6205128 1.230797
+ 16 <{"Home -private-=super_low"},
+     {"Food - Drink Shop=super_low"}>                        => <{"Home -private-=super_low"}>                           0.1108033  0.7692308 1.525782
+ 17 <{"Home -private-=super_low"},
+     {"Bar=super_low"}>                                      => <{"Home -private-=super_low"}>                           0.1108033  0.5741627 1.138861
+ 18 <{"Office=super_low"},
+     {"Office=super_low"},
+     {"Office=super_low"}>                                   => <{"Office=super_low"}>                                   0.1098800  0.7391304 1.389719
+ 19 <{"Subway=super_low"}>                                   => <{"Subway=super_low"}>                                   0.1098800  0.4817814 2.112426
+ 20 <{"Home -private-=super_low"},
+     {"Coffee Shop=super_low"}>                              => <{"Home -private-=super_low"}>                           0.1089566  0.6113990 1.212720
+ 21 <{"Office=low"},
+     {"Office=low"}>                                         => <{"Office=low"}>                                         0.1052632  0.8837209 4.472289
+ 22 <{"Gym - Fitness Center=super_low"}>                     => <{"Gym - Fitness Center=super_low"}>                     0.1052632  0.3931034 1.468038
+ 23 <{"Residential Building -Apartment - Condo-=super_low"}> => <{"Residential Building -Apartment - Condo-=super_low"}> 0.1052632  0.3247863 1.002118
