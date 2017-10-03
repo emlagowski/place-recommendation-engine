@@ -70,152 +70,55 @@ Keywords:
 # Dane ze wszystkich miast
 
 ```{r}
-data <- read.delim("./data/dataset_TIST2015/dataset_TIST2015_Cities.txt", fill = TRUE)
-colnames(data) <- c("CityName", "Latitude", "Longitude", "CountryCode", "CountryName", "CityType")
-str(data)
+source("R/init.R")
+source("R/categories.R")
+source("R/venues.R")
+source("R/minerules.R")
 
-citiesCountByCountry <- aggregate(CityName ~ CountryName, data, length)
-colnames(citiesCountByCountry) <- c("CountryName", "Cities")
-citiesCountByCountry[order(-citiesCountByCountry$Cities),]
-```
-
-# Przygotowanie zbioru danych - tylko New York
-
-```{r}
-library(stringr)
 lct <- Sys.getlocale("LC_TIME"); Sys.setlocale("LC_TIME", "C")
 
-nyc <- read.table("./data/dataset_tsmc2014/dataset_TSMC2014_NYC.txt", sep="\t", stringsAsFactors = TRUE)
-colnames(nyc) <- c("userId","venueId","venueCategoryId","venueCategory","latitude","longitude","timezoneOffset","utcTimestamp")
-#nyc <- nyc[nyc$venueCategoryId != '4bf58dd8d48988d103941735',]
-nyc$dateTime <- as.POSIXlt(nyc$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")
-nyc$timestamp <- as.integer(as.numeric(as.POSIXlt(nyc$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")))
-nyc$venueCategory <- str_replace_all(nyc$venueCategory, '[(\\/&)]', '-')
+rawNycData <- prepareData()
 
-venueFreq <- data.frame(table(nyc$venueId))
-nyc$venuePopularity = venueFreq$Freq[match(nyc$venueId, venueFreq$Var1)]
-venueCategoryFreq <- data.frame(table(nyc$venueCategoryId))
-nyc$venueCategoryPopularity = venueCategoryFreq$Freq[match(nyc$venueCategoryId, venueCategoryFreq$Var1)]
-nyc$venyePopularityToCategory = nyc$venuePopularity / nyc$venueCategoryPopularity 
-allEvents <- nrow(nyc)
-nyc$venyePopularityToAll = nyc$venuePopularity / allEvents
+# Get all unique pairs of venue and category
+uniqueVenueWithCategoryById <- unique(rawNycData[c("VenueId", "VenueCategoryId")])
 
-# 1. wybierz metodę
-#discretizeMethod <- "frequency"
-discretizeMethod <- "interval"
+categories <- readCategories()
+venueWithCategory <- changeCategoryToParent(uniqueVenueWithCategoryById, categories, 0)
 
-# 2. wybierzilośc stopni
-categories <- c("super_low", "low", "medium", "high", "super_high")
-#categories <- c("low", "medium", "high")
+venueWithCategoryWithApiData <- merge(x = readVenuesFromApi(), y = venueWithCategory, 
+                                   by.x = c('VenueId', 'VenueCategoryId'), 
+                                   by.y = c('VenueId', 'VenueCategoryId'), 
+                                   all.x = TRUE)
+categoriesToFilter <- c(
+  '4e67e38e036454776db1fb3a',  # Residence
+  '4d4b7105d754a06379d81259',  # Travel & Transport
+  '4bf58dd8d48988d124941735'   # Office
+  )
+rawNycDataFiltered <- removeCategories(rawNycData, categories, categoriesToFilter)
 
-categoriesLen <- length(categories)
+rawNycDataFiltered$VenueCategory <- NULL
+mergedNycWithCategories <- merge(x = rawNycDataFiltered, y = venueWithCategoryWithApiData,
+      by.x = c('VenueId', 'VenueCategoryId'), by.y = c('VenueId', 'VenueCategoryId'))
+mergedNycWithCategories <- mergedNycWithCategories[!is.na(mergedNycWithCategories$VenueCategory),]
+#summary(mergedNycWithCategories)
+#summary(is.na(mergedNycWithCategories$VenueCategory))
 
-nyc$venuePopularityToCategoryDiscrete <- discretize(nyc$venyePopularityToCategory, categories = categoriesLen, method = discretizeMethod, labels = categories)
-summary(nyc$venuePopularityToCategoryDiscrete)
-nyc$venuePopularityToAllDiscrete <- discretize(nyc$venyePopularityToAll, categories = categoriesLen, method = discretizeMethod, labels = categories)
-summary(nyc$venyePopularityToAllDiscrete)
+#mergedNycWithCategories <- removeRedundandEvents(mergedNycWithCategories, 'VenueCategory')
 
-# 3. wybierz stopniowanie toAll / toCategory
-nyc$MERGED = paste(nyc$venueCategory, nyc$venuePopularityToCategoryDiscrete, sep="=")
-#nyc$MERGED = paste(nyc$venueCategory, nyc$venuePopularityToAllDiscrete, sep="=")
-
-# Usuwanie duplikatów z eventID
-
-mergedColumn <- paste(nyc$userId, nyc$timestamp, sep="=")
-nyc_wo_duplicates <- nyc[!duplicated(mergedColumn), ]
-
-# 4. wybierz czy używana będzie popularność
-# with MERGED
-nyc_wo_duplicates <- nyc_wo_duplicates[,c(1,10,17)]
-# with VenueCategory
-#nyc_wo_duplicates <- nyc_wo_duplicates[,c(1,10,4)]
-nyc_wo_duplicates <- nyc_wo_duplicates[order(nyc_wo_duplicates$userId, nyc_wo_duplicates$timestamp),]
-sapply(nyc_wo_duplicates, class)
-
-# Zapis transakcji do pliku
-nyc_transactions_filepath <- "./data/dataset_tsmc2014/nyc_wo_duplicates.data"
-write.table(nyc_wo_duplicates, nyc_transactions_filepath, sep = "," , row.names = FALSE, col.names = FALSE )
-
-print('venyePopularityToCategory')
-summary(nyc$venyePopularityToCategory)
-plot(nyc$venyePopularityToCategory)
-#hist(nyc$venyePopularityToCategory)
-print('venyePopularityToAll')
-summary(nyc$venyePopularityToAll)
-plot(nyc$venyePopularityToAll)
-#hist(nyc$venyePopularityToAll)
-print('venuePopularityToCategoryDiscrete')
-summary(nyc$venuePopularityToCategoryDiscrete)
-plot(nyc$venuePopularityToCategoryDiscrete)
-#hist(nyc$venuePopularityToCategoryDiscrete)
-print('venuePopularityToAllDiscrete')
-summary(nyc$venuePopularityToAllDiscrete)
-plot(nyc$venuePopularityToAllDiscrete)
-#hist(nyc$venuePopularityToAllDiscrete)
+writeTransactions(mergedNycWithCategories, c('UserId', 'timestamp', 'VenueCategory'))
+sequences <- readTransactions()
 ```
 
-# Read transactions from file
 ```{r}
-library(arules)
-library(arulesSequences)
+rules <- mineRules(sequences, support = 0.1, confidence = 0.1, mingap = second, maxgap = 14 * day)
+rules.noSubsetOnRight <- removeRightEqualToLeft(rules)
 
-dataSeq <- read_baskets(con = nyc_transactions_filepath, sep = ",", info = c("sequenceID", "eventID"))
+#rules.no_redundant <- rules.noSubsetOnRight[is.redundant(rules.noSubsetOnRight)]
 
-#summary
-#summary(dataSeq)
-#str(dataSeq)
-```
+rules.filtered <- subset(rules.noSubsetOnRight, lift > 0.1)
 
-# Some extra informations about dataset
-```{r}
-#presenting data in data.frame form
-frameS =   as(dataSeq, "data.frame")
-View(frameS)
+rules.sorted <- sort(rules.filtered, by=c('lift', 'support', 'confidence'))
 
-#information about data concerning times 
-timeSeq  = as(dataSeq,"timedsequences")
-freqT = timeFrequency(timeSeq, "times")
-
-spanT= timeFrequency(timeSeq, "span")
-
-#calculation of frequency of items
-freqItem = itemFrequency(dataSeq)
-str(freqItem)
-freqItem = sort(freqItem, decreasing = TRUE )
-head(freqItem,20)
-```
-
-# Mining sequence rules
-```{r}
-second = 1
-minute = 60 * second
-hour = 60 * minute
-day = 24 * hour
-seqParam = new ("SPparameter", support = 0.1, maxsize = 6, mingap = 1 * minute, maxgap = 2 * day, maxlen = 6)
-patSeq = cspade(dataSeq, seqParam, control = list(verbose = TRUE, tidLists = FALSE, summary= TRUE))
-#summary(patSeq)
-#odkrycie reguł
-seqRules = ruleInduction(patSeq, confidence = 0.1)
-
-sortedRules <- subset(sort(sort(seqRules, decreasing = TRUE, na.last = NA, by = "confidence"), decreasing = TRUE, na.last = NA, by = "support"), subset =  lift > 1.0)
-#sortedRules <- sort(sort(seqRules, decreasing = TRUE, na.last = NA, by = "confidence"), decreasing = TRUE, na.last = NA, by = "support")
-inspect(head(sortedRules, 100))
-
-#length(seqRules)
-#podsumowanie 
-#summary(seqRules)
-#prezentacja przykładowych reguł
-#inspect(head(seqRules,30))
-
-# seqRules.df <- data.frame(lhs = labels(lhs(seqRules)), rhs = labels(rhs(seqRules)), seqRules@quality, stringsAsFactors = FALSE)
-# seqRules_lr_diff <- subset(seqRules.df, rhs!=lhs)
-# seqRules_lr_diff <- subset(seqRules_lr_diff, rhs!=lhs)
-# seqRules_lr_diff <- seqRules_lr_diff[order(-seqRules_lr_diff$support, -seqRules_lr_diff$confidence),]
-#head(seqRules_lr_diff, 30)
-
-```
-
-
-```{r}
+inspect(head(rules.sorted, 1000))
 
 ```

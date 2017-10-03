@@ -24,3 +24,15 @@ unique(nyc[,c("venueCategory")])
 str_replace_all(unique(nyc[,c("venueCategory")]), '[(\\/&)]', '-')
 
 nyc$venueCategory <- str_replace_all(nyc$venueCategory, '[(\\/&)]', '-')
+
+
+# ----
+
+
+data <- read.delim("./data/dataset_TIST2015/dataset_TIST2015_Cities.txt", fill = TRUE)
+colnames(data) <- c("CityName", "Latitude", "Longitude", "CountryCode", "CountryName", "CityType")
+str(data)
+
+citiesCountByCountry <- aggregate(CityName ~ CountryName, data, length)
+colnames(citiesCountByCountry) <- c("CountryName", "Cities")
+citiesCountByCountry[order(-citiesCountByCountry$Cities),]
