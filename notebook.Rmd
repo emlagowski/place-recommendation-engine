@@ -7,7 +7,7 @@ output:
 ---
 **Wykrywanie wzorców odwiedzanych miejsc w różnych miastach np. Nowy Jork, a następnie przełożenie ich na Warszawę. **
  
-Zapoznałem się z przesłaną przez Pana pracą i pracami z jej bibliografii. Dotarłem do strony autorów publikacji z której pobrane były dane z Foursquare. 
+Zapoznałem się z przesłaną pracą i pracami z jej bibliografii. Dotarłem do strony autorów publikacji z której pobrane były dane z Foursquare. 
 
 [Zbiory danych](https://sites.google.com/site/yangdingqi/home/foursquare-dataset)
 https://rexdatascience.wordpress.com/author/rexjwoon/
@@ -80,45 +80,52 @@ lct <- Sys.getlocale("LC_TIME"); Sys.setlocale("LC_TIME", "C")
 rawNycData <- prepareData()
 
 # Get all unique pairs of venue and category
-uniqueVenueWithCategoryById <- unique(rawNycData[c("VenueId", "VenueCategoryId")])
+#uniqueVenueWithCategoryById <- unique(rawNycData[c("VenueId", "VenueCategoryId")])
 
-categories <- readCategories()
-venueWithCategory <- changeCategoryToParent(uniqueVenueWithCategoryById, categories, 0)
+#categories <- readCategories()
+#venueWithCategory <- changeCategoryToParent(uniqueVenueWithCategoryById, categories, 0)
+#
+#venueWithCategoryWithApiData <- merge(x = readVenuesFromApi(), y = venueWithCategory, 
+#                                   by.x = c('VenueId', 'VenueCategoryId'), 
+#                                   by.y = c('VenueId', 'VenueCategoryId'), 
+#                                   all.x = TRUE)
+#categoriesToFilter <- c(
+#  '4e67e38e036454776db1fb3a',  # Residence
+#  '4d4b7105d754a06379d81259',  # Travel & Transport
+#  '4bf58dd8d48988d124941735'   # Office
+#  )
+#rawNycDataFiltered <- removeCategories(rawNycData, categories, categoriesToFilter)
 
-venueWithCategoryWithApiData <- merge(x = readVenuesFromApi(), y = venueWithCategory, 
-                                   by.x = c('VenueId', 'VenueCategoryId'), 
-                                   by.y = c('VenueId', 'VenueCategoryId'), 
-                                   all.x = TRUE)
-categoriesToFilter <- c(
-  '4e67e38e036454776db1fb3a',  # Residence
-  '4d4b7105d754a06379d81259',  # Travel & Transport
-  '4bf58dd8d48988d124941735'   # Office
-  )
-rawNycDataFiltered <- removeCategories(rawNycData, categories, categoriesToFilter)
-
-rawNycDataFiltered$VenueCategory <- NULL
-mergedNycWithCategories <- merge(x = rawNycDataFiltered, y = venueWithCategoryWithApiData,
-      by.x = c('VenueId', 'VenueCategoryId'), by.y = c('VenueId', 'VenueCategoryId'))
-mergedNycWithCategories <- mergedNycWithCategories[!is.na(mergedNycWithCategories$VenueCategory),]
+#rawNycDataFiltered$VenueCategory <- NULL
+#mergedNycWithCategories <- merge(x = rawNycDataFiltered, y = venueWithCategoryWithApiData,
+#      by.x = c('VenueId', 'VenueCategoryId'), by.y = c('VenueId', 'VenueCategoryId'))
+#mergedNycWithCategories <- mergedNycWithCategories[!is.na(mergedNycWithCategories$VenueCategory),]
 #summary(mergedNycWithCategories)
 #summary(is.na(mergedNycWithCategories$VenueCategory))
 
-#mergedNycWithCategories <- removeRedundandEvents(mergedNycWithCategories, 'VenueCategory')
-
-writeTransactions(mergedNycWithCategories, c('UserId', 'timestamp', 'VenueCategory'))
+####mergedNycWithCategories <- removeRedundandEvents(mergedNycWithCategories, 'VenueCategory')
+rawNycData <- rawNycData[order(rawNycData$UserId, rawNycData$timestamp),]
+writeTransactions(rawNycData, c('UserId', 'timestamp', 'VenueCategory'))
 sequences <- readTransactions()
 ```
 
 ```{r}
-rules <- mineRules(sequences, support = 0.1, confidence = 0.1, mingap = second, maxgap = 14 * day)
-rules.noSubsetOnRight <- removeRightEqualToLeft(rules)
+rawRules <- mineRules(sequences, support = 0.1, confidence = 0.1, mingap = minute, maxgap = 30 * day)
+
+rawRules <- removeRightEqualToLeft(rawRules)
+
+rawRules <- subset(rawRules, lift > 1)
+
+rawRules <- sort(rawRules, by=c('lift', 'support', 'confidence'))
 
 #rules.no_redundant <- rules.noSubsetOnRight[is.redundant(rules.noSubsetOnRight)]
 
-rules.filtered <- subset(rules.noSubsetOnRight, lift > 0.1)
+#inspect(head(rawRules, 100))
 
-rules.sorted <- sort(rules.filtered, by=c('lift', 'support', 'confidence'))
+#rules <- subset(rawRules, rhs(rawRules) %in% c("\"University\""))
+#rules <- subset(rawRules, rhs(rawRules) %in% c("\"Coffee Shop\""))
 
-inspect(head(rules.sorted, 1000))
+inspect(head(rawRules, 100))
+length(rules)
 
 ```

@@ -38,8 +38,9 @@ mineRules <- function(inputSequences, support, confidence, mingap = second, maxg
   return(seqRules)
 }
 
+# usuwa takie reguły w których prawa strona jest zawarta w lewej stronie reguły
 removeRightEqualToLeft <- function(inputRules) {
-  df <- as(rules, "data.frame")
+  df <- as(inputRules, "data.frame")
   listOfRules <- lapply(strsplit(as.character(df$rule), " => ", fixed = TRUE), function(x) {
     strsplit(  gsub("[<{\"\"}>]", "", x), ",", fixed = TRUE)
   })
@@ -50,9 +51,11 @@ removeRightEqualToLeft <- function(inputRules) {
     #print(paste(x, paste(i[[1]], paste("=>", i[2]))))
     rightSubsetOfLeft <- c(rightSubsetOfLeft, x)
   }
-  result <- rules[rightSubsetOfLeft]
+  result <- inputRules[rightSubsetOfLeft]
   return(result)
 }
+
+
 
 #length(seqRules)
 #podsumowanie 

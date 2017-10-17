@@ -11,7 +11,7 @@ prepareData <- function(path = rawPath, columns = rawColumns) {
   data$dateTime <- as.POSIXlt(data$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")
   # Add timestamp from string based timestamp field
   data$timestamp <- as.integer(as.numeric(as.POSIXlt(data$utcTimestamp, format = "%a %b %d %H:%M:%S +0000 %Y", tz="UTC")))
-  #nyc$venueCategory <- str_replace_all(nyc$VenueCategory, '[(\\/&)]', '-')
+  data$VenueCategory <- str_replace_all(data$VenueCategory, '[(\\/&)]', '-')
   
   # W zbiorze danych znaleziono powielające się checkiny z tego samego timestampa dla tego samego użytkownika
   # Usuwanie duplikatów z eventID
