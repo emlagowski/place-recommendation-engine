@@ -1,0 +1,400 @@
+0	4bf58dd8d48988d1ce941735	Seafood Restaurant
+1	4bf58dd8d48988d157941735	American Restaurant
+2	4bf58dd8d48988d1f1931735	General Entertainment
+3	4bf58dd8d48988d14e941735	American Restaurant
+4	4bf58dd8d48988d143941735	Breakfast Spot
+5	4bf58dd8d48988d1cc941735	Steakhouse
+6	4bf58dd8d48988d121941735	Bar
+7	4bf58dd8d48988d1c1941735	Mexican Restaurant
+8	4bf58dd8d48988d1e0931735	Coffee Shop
+9	4bf58dd8d48988d11d941735	Bar
+10	4bf58dd8d48988d113941735	Korean Restaurant
+11	4bf58dd8d48988d11b941735	Bar
+12	4bf58dd8d48988d10c941735	French Restaurant
+13	4bf58dd8d48988d1fa931735	Hotel
+14	4bf58dd8d48988d1d5941735	Hotel
+15	4bf58dd8d48988d1d1941735	Ramen /  Noodle House
+16	4bf58dd8d48988d116941735	Bar
+17	4bf58dd8d48988d16c941735	Burger Joint
+18	4bf58dd8d48988d1c5941735	Sandwich Place
+19	4bf58dd8d48988d163941735	Park
+20	4bf58dd8d48988d147941735	Diner
+21	4bf58dd8d48988d10d951735	Record Shop
+22	4bf58dd8d48988d122951735	Electronics Store
+23	4bf58dd8d48988d1fe941735	Music Store
+24	4bf58dd8d48988d14c941735	Wings Joint
+25	4bf58dd8d48988d128951735	Gift Shop
+26	4bf58dd8d48988d1cb941735	Food Truck
+27	4bf58dd8d48988d155941735	Gastropub
+28	4bf58dd8d48988d1d2941735	Sushi Restaurant
+29	4bf58dd8d48988d123941735	Bar
+30	4bf58dd8d48988d110941735	Italian Restaurant
+31	4bf58dd8d48988d110951735	Salon / Barbershop
+32	4bf58dd8d48988d130941735	Building
+33	4bf58dd8d48988d11e941735	Bar
+34	5032792091d4c4b30a586d5c	Concert Hall
+35	4bf58dd8d48988d1f7941735	Flea Market
+36	4bf58dd8d48988d117941735	Beer Garden
+37	4bf58dd8d48988d103951735	Clothing Store
+38	4bf58dd8d48988d16f941735	Hot Dog Joint
+39	4bf58dd8d48988d180941735	Movie Theater
+40	4bf58dd8d48988d1d4941735	Bar
+41	4bf58dd8d48988d1ca941735	Pizza Place
+42	4bf58dd8d48988d190941735	History Museum
+43	4bf58dd8d48988d1ed931735	Airport
+44	4bf58dd8d48988d16a941735	Bakery
+45	4bf58dd8d48988d1f6941735	Department Store
+46	4bf58dd8d48988d1f8941735	Furniture / Home Store
+47	4bf58dd8d48988d175941735	Gym / Fitness Center
+48	4bf58dd8d48988d164941735	Plaza
+49	4bf58dd8d48988d1fd931735	Subway
+50	4bf58dd8d48988d11a951735	Bridal Shop
+51	4f2a210c4b9023bd5841ed28	Housing Development
+52	4d954b06a243a5684965b473	Residential Building (Apartment / Condo)
+53	4e74f6cabd41c4836eac4c31	Ferry
+54	4bf58dd8d48988d149941735	Thai Restaurant
+55	4bf58dd8d48988d103941735	Home (private)
+56	4bf58dd8d48988d146941735	Deli / Bodega
+57	4bf58dd8d48988d1df941735	Bridge
+58	4bf58dd8d48988d1f5941735	Food & Drink Shop
+59	4bf58dd8d48988d120941735	Bar
+60	4bf58dd8d48988d10c951735	Cosmetics Shop
+61	4bf58dd8d48988d162941735	Other Great Outdoors
+62	4bf58dd8d48988d127951735	Arts & Crafts Store
+63	4bf58dd8d48988d12a951735	Train Station
+64	4bf58dd8d48988d108951735	Clothing Store
+65	4bf58dd8d48988d1f4941735	Design Studio
+66	4bf58dd8d48988d118951735	Food & Drink Shop
+67	4bf58dd8d48988d107951735	Clothing Store
+68	4bf58dd8d48988d105951735	Clothing Store
+69	4bf58dd8d48988d1dd931735	Soup Place
+70	4bf58dd8d48988d176941735	Gym / Fitness Center
+71	4bf58dd8d48988d124941735	Office
+72	4bf58dd8d48988d12b951735	Bus Station
+73	4bf58dd8d48988d11e951735	Food & Drink Shop
+74	4bf58dd8d48988d129951735	Train Station
+75	4f2a25ac4b909258e854f55f	Neighborhood
+76	4bf58dd8d48988d1e2941735	Beach
+77	4bf58dd8d48988d1c9941735	Ice Cream Shop
+78	4bf58dd8d48988d1f9931735	Road
+79	4bf58dd8d48988d1fe931735	Bus Station
+80	50aa9e744b90af0d42d5de0e	Food & Drink Shop
+81	4bf58dd8d48988d179941735	Bagel Shop
+82	4bf58dd8d48988d165941735	Scenic Lookout
+83	4bf58dd8d48988d1d0941735	Dessert Shop
+84	4bf58dd8d48988d178941735	Medical Center
+85	4bf58dd8d48988d104941735	Medical Center
+86	4bf58dd8d48988d137941735	Theater
+87	4bf58dd8d48988d172941735	Post Office
+88	4bf58dd8d48988d18f941735	Art Museum
+89	4bf58dd8d48988d142941735	Asian Restaurant
+90	4bf58dd8d48988d1db931735	Tapas Restaurant
+91	4bf58dd8d48988d150941735	Spanish Restaurant
+92	4cce455aebf7b749d5e191f5	Athletic & Sport
+93	4bf58dd8d48988d159941735	Other Great Outdoors
+94	4bf58dd8d48988d17e941735	Movie Theater
+95	4bf58dd8d48988d1eb931735	Airport
+96	4bf58dd8d48988d104951735	Clothing Store
+97	4bf58dd8d48988d1f2941735	Sporting Goods Shop
+98	4bf58dd8d48988d1ed941735	Spa / Massage
+99	4d4b7105d754a06377d81259	Outdoors & Recreation
+100	4bf58dd8d48988d1fa941735	Food & Drink Shop
+101	4d954af4a243a5684765b473	Medical Center
+102	4bf58dd8d48988d100951735	Pet Store
+103	4bf58dd8d48988d1c4941735	Restaurant
+104	4bf58dd8d48988d14f941735	Southern / Soul Food Restaurant
+105	4bf58dd8d48988d132941735	Church
+106	4bf58dd8d48988d1df931735	BBQ Joint
+107	4bf58dd8d48988d17f941735	Movie Theater
+108	4bf58dd8d48988d16d941735	Café
+109	4bf58dd8d48988d10a951735	Bank
+110	4bf58dd8d48988d1b1941735	College Academic Building
+111	4bf58dd8d48988d135941735	Theater
+112	4bf58dd8d48988d1c0941735	Mediterranean Restaurant
+113	4bf58dd8d48988d1e7931735	Music Venue
+114	4bf58dd8d48988d1fc941735	Laundry Service
+115	4bf58dd8d48988d1a8941735	General College & University
+116	4bf58dd8d48988d1ff941735	Miscellaneous Shop
+117	4bf58dd8d48988d1f2931735	Performing Arts Venue
+118	4bf58dd8d48988d10f951735	Drugstore / Pharmacy
+119	4bf58dd8d48988d112951735	Hardware Store
+120	4bf58dd8d48988d196941735	Medical Center
+121	4bf58dd8d48988d177941735	Medical Center
+122	4bf58dd8d48988d198941735	College Academic Building
+123	4bf58dd8d48988d1e0941735	Harbor / Marina
+124	4bf58dd8d48988d136941735	Theater
+125	4bf58dd8d48988d134941735	Performing Arts Venue
+126	4bf58dd8d48988d153941735	Burrito Place
+127	4bf58dd8d48988d1e5931735	Music Venue
+128	4bf58dd8d48988d1fd941735	Mall
+129	4bf58dd8d48988d119951735	Food & Drink Shop
+130	4bf58dd8d48988d10f941735	Indian Restaurant
+131	4bf58dd8d48988d145941735	Chinese Restaurant
+132	4bf58dd8d48988d10e951735	Food & Drink Shop
+133	4d4ae6fc7a7b7dea34424761	Fried Chicken Joint
+134	4bf58dd8d48988d1f6931735	General Travel
+135	4bf58dd8d48988d111941735	Japanese Restaurant
+136	4bf58dd8d48988d148941735	Donut Shop
+137	4bf58dd8d48988d1a6941735	Law School
+138	4bf58dd8d48988d16e941735	Fast Food Restaurant
+139	4bf58dd8d48988d174941735	Office
+140	4f4531504b9074f6e4fb0102	Train Station
+141	4f2a23984b9023bd5841ed2c	Moving Target
+142	4bf58dd8d48988d114951735	Bookstore
+143	4bf58dd8d48988d13b941735	School
+144	4bf58dd8d48988d1d3941735	Vegetarian / Vegan Restaurant
+145	503287a291d4c4b30a586d65	Financial or Legal Service
+146	4bf58dd8d48988d1e2931735	Art Gallery
+147	4bf58dd8d48988d154941735	Cuban Restaurant
+148	4bf58dd8d48988d186941735	Food & Drink Shop
+149	4bf58dd8d48988d181941735	Museum
+150	4bf58dd8d48988d1a3941735	College Academic Building
+151	4bf58dd8d48988d1de931735	Tattoo Parlor
+152	4bf58dd8d48988d15a941735	Garden
+153	4bf58dd8d48988d1e9931735	Music Venue
+154	4bf58dd8d48988d1c8941735	African Restaurant
+155	4bf58dd8d48988d123951735	Smoke Shop
+156	4bf58dd8d48988d1bc941735	Cupcake Shop
+157	4bf58dd8d48988d144941735	Caribbean Restaurant
+158	4bf58dd8d48988d102941735	Gym / Fitness Center
+159	4bf58dd8d48988d121951735	Paper / Office Supplies Store
+160	4bf58dd8d48988d12f941735	Library
+161	4eb1bc533b7b2c5b1d4306cb	Airport
+162	4bf58dd8d48988d11f941735	Bar
+163	4bf58dd8d48988d106941735	Gym / Fitness Center
+164	4bf58dd8d48988d125941735	Office
+165	4bf58dd8d48988d167941735	Athletic & Sport
+166	4bf58dd8d48988d152941735	Arepa Restaurant
+167	4bf58dd8d48988d151941735	Taco Place
+168	4bf58dd8d48988d10b941735	Falafel Restaurant
+169	4e39a956bd410d7aed40cbc3	Athletic & Sport
+170	4bf58dd8d48988d10e941735	Greek Restaurant
+171	4bf58dd8d48988d1dc931735	Tea Room
+172	4bf58dd8d48988d15b941735	Other Great Outdoors
+173	4bf58dd8d48988d12d951735	Ferry
+174	4bf58dd8d48988d111951735	Jewelry Store
+175	4bf58dd8d48988d18c941735	Stadium
+176	4bf58dd8d48988d109941735	Eastern European Restaurant
+177	50be8ee891d4fa8dcc7199a7	Market
+178	4bf58dd8d48988d166941735	Sculpture Garden
+179	4bf58dd8d48988d118941735	Bar
+180	4bf58dd8d48988d1e8941735	Athletic & Sport
+181	4bf58dd8d48988d112941735	Bar
+182	4bf58dd8d48988d171941735	Event Space
+183	4bf58dd8d48988d119941735	Bar
+184	4bf58dd8d48988d15d941735	Other Great Outdoors
+185	4bf58dd8d48988d115951735	Bike Shop
+186	4bf58dd8d48988d115941735	Middle Eastern Restaurant
+187	4bf58dd8d48988d156941735	Malaysian Restaurant
+188	4bf58dd8d48988d126941735	Government Building
+189	4bf58dd8d48988d1cd941735	South American Restaurant
+190	4bf58dd8d48988d117951735	Candy Store
+191	4bf58dd8d48988d15f941735	Other Great Outdoors
+192	4bf58dd8d48988d1f0931735	Airport
+193	4bf58dd8d48988d1be941735	Latin American Restaurant
+194	4bf58dd8d48988d10d941735	German Restaurant
+195	4bf58dd8d48988d184941735	Stadium
+196	4bf58dd8d48988d1ae941735	University
+197	4bf58dd8d48988d197941735	College Academic Building
+198	4bf58dd8d48988d1ec931735	Airport
+199	4bf58dd8d48988d17b941735	Zoo
+200	4bf58dd8d48988d189941735	Stadium
+201	4bf58dd8d48988d138941735	Mosque
+202	4bf58dd8d48988d102951735	Clothing Store
+203	4bf58dd8d48988d108941735	Dumpling Restaurant
+204	4bf58dd8d48988d1f3941735	Toy / Game Store
+205	4bf58dd8d48988d101951735	Thrift / Vintage Store
+206	4bf58dd8d48988d14a941735	Vietnamese Restaurant
+207	4bf58dd8d48988d1f9941735	Food & Drink Shop
+208	4bf58dd8d48988d113951735	Gas Station / Garage
+209	4deefb944765f83613cdba6e	Historic Site
+210	4bf58dd8d48988d1a7941735	College Academic Building
+211	4bf58dd8d48988d1a1941735	College Academic Building
+212	4bf58dd8d48988d1b2941735	College Academic Building
+213	4bf58dd8d48988d1ab941735	Student Center
+214	4bf58dd8d48988d19a941735	College Academic Building
+215	4bf58dd8d48988d1aa941735	College Academic Building
+216	4bf58dd8d48988d11a941735	Other Nightlife
+217	4bf58dd8d48988d1e1941735	Athletic & Sport
+218	5032891291d4c4b30a586d68	Home (private)
+219	4c38df4de52ce0d596b336e1	Parking
+220	4bf58dd8d48988d1af941735	College Academic Building
+221	4bf58dd8d48988d1a0941735	College Academic Building
+222	4bf58dd8d48988d1bd941735	Salad Place
+223	4bf58dd8d48988d129941735	Government Building
+224	4bf58dd8d48988d1ff931735	Convention Center
+225	4bf58dd8d48988d124951735	Automotive Shop
+226	4bf58dd8d48988d1f1941735	Board Shop
+227	4bf58dd8d48988d1b3941735	Medical School
+228	4bf58dd8d48988d12c941735	Government Building
+229	4bf58dd8d48988d1a2941735	Community College
+230	4eb1c1623b7b52c0e1adc2ec	Car Dealership
+231	4bf58dd8d48988d18e941735	Comedy Club
+232	4bf58dd8d48988d13d941735	High School
+233	4bf58dd8d48988d1ee931735	Hotel
+234	4bf58dd8d48988d1fb941735	Hobby Shop
+235	4bf58dd8d48988d185941735	Stadium
+236	4bf58dd8d48988d1e7941735	Playground
+237	4d4b7105d754a06374d81259	Food
+238	4bf58dd8d48988d188941735	Stadium
+239	4bf58dd8d48988d1e6941735	Athletic & Sport
+240	4bf58dd8d48988d1e4931735	Bowling Alley
+241	4bf58dd8d48988d139941735	Synagogue
+242	4bf58dd8d48988d11d951735	Food & Drink Shop
+243	4bf58dd8d48988d15c941735	Cemetery
+244	4bf58dd8d48988d1fc931735	Light Rail
+245	50aa9e094b90af0d42d5de0d	City
+246	4bf58dd8d48988d106951735	Clothing Store
+247	4bf58dd8d48988d14b941735	Winery
+248	4bf58dd8d48988d122941735	Bar
+249	4bf58dd8d48988d12e941735	Government Building
+250	4bf58dd8d48988d127941735	Office
+251	4e39a891bd410d7aed40cbc2	Stadium
+252	4bf58dd8d48988d1e3931735	Pool Hall
+253	4bf58dd8d48988d1c2941735	Molecular Gastronomy Restaurant
+254	507c8c4091d498d9fc8c67a9	Public Art
+255	4bf58dd8d48988d12d941735	Government Building
+256	4bf58dd8d48988d130951735	Taxi
+257	4d4b7105d754a06378d81259	Shop & Service
+258	4bf58dd8d48988d1f7931735	Airport
+259	4d954b0ea243a5684a65b473	Convenience Store
+260	4d4b7105d754a06375d81259	Professional & Other Places
+261	4eb1baf03b7b2c5b1d4306ca	Other Great Outdoors
+262	4bf58dd8d48988d10a941735	Ethiopian Restaurant
+263	4bf58dd8d48988d1d8941735	Bar
+264	4bf58dd8d48988d1f4931735	Racetrack
+265	4bf58dd8d48988d120951735	Food & Drink Shop
+266	4bf58dd8d48988d1e1931735	Arcade
+267	4bf58dd8d48988d10b951735	Video Game Store
+268	4bf58dd8d48988d11b951735	Flower Shop
+269	4bf58dd8d48988d1ac941735	College Theater
+270	4d954b16a243a5684b65b473	Rest Area
+271	4bf58dd8d48988d1a5941735	College Academic Building
+272	4bf58dd8d48988d194941735	Medical Center
+273	4bf58dd8d48988d182941735	Park
+274	4bf58dd8d48988d1e3941735	Beach
+275	4bf58dd8d48988d12b941735	Government Building
+276	4bf58dd8d48988d14d941735	Spanish Restaurant
+277	4bf58dd8d48988d169941735	Australian Restaurant
+278	4bf58dd8d48988d116951735	Antique Shop
+279	4bf58dd8d48988d1bf941735	Mac & Cheese Joint
+280	4f04aa0c2fb6e1c99f3db0b8	Nail Salon
+281	4cae28ecbf23941eb1190695	Government Building
+282	4f04afc02fb6e1c99f3db0bc	Mobile Phone Shop
+283	4f4534884b9074f6e4fb0174	Funeral Home
+284	4bf58dd8d48988d109951735	Clothing Store
+285	4bf58dd8d48988d1c7941735	Snack Place
+286	4f4528bc4b90abdf24c9de85	Athletic & Sport
+287	4bf58dd8d48988d18b941735	Stadium
+288	4bf58dd8d48988d12c951735	Embassy / Consulate
+289	4bf58dd8d48988d1e8931735	Music Venue
+290	4bf58dd8d48988d16b941735	Brazilian Restaurant
+291	4bf58dd8d48988d1d6941735	Bar
+292	4eb1bd1c3b7b55596b4a748f	Filipino Restaurant
+293	4f4533804b9074f6e4fb0105	Elementary School
+294	4bf58dd8d48988d1ad941735	Trade School
+295	4bf58dd8d48988d1ef941735	Rental Car Location
+296	4bf58dd8d48988d100941735	Convention Center
+297	4f4531084b9074f6e4fb0101	Recycling Facility
+298	4bf58dd8d48988d15e941735	Pool
+299	50327c8591d4c4b30a586d5d	Brewery
+300	4bf58dd8d48988d161941735	Other Great Outdoors
+301	4bf58dd8d48988d1e4941735	Campground
+302	4bf58dd8d48988d133951735	Hotel
+303	4bf58dd8d48988d12a941735	Government Building
+304	4bf58dd8d48988d1e5941735	Other Great Outdoors
+305	4bf58dd8d48988d11c941735	Bar
+306	4bf58dd8d48988d1f5931735	Dim Sum Restaurant
+307	4d954afda243a5684865b473	Medical Center
+308	4d4b7104d754a06370d81259	Arts & Entertainment
+309	4bf58dd8d48988d192941735	Planetarium
+310	4c2cd86ed066bed06c3c5209	Gluten-free Restaurant
+311	4bf58dd8d48988d199941735	College Academic Building
+312	50aaa49e4b90af0d42d5de11	Castle
+313	4bf58dd8d48988d168941735	Athletic & Sport
+314	4bf58dd8d48988d1c3941735	Moroccan Restaurant
+315	4bf58dd8d48988d187941735	Stadium
+316	4bf58dd8d48988d1b0941735	Fraternity House
+317	4f04af1f2fb6e1c99f3db0bb	Turkish Restaurant
+318	4e52adeebd41615f56317744	Military Base
+319	4bf58dd8d48988d17c941735	Casino
+320	4bf58dd8d48988d160941735	Other Great Outdoors
+321	4d4b7105d754a06379d81259	Travel & Transport
+322	4bf58dd8d48988d19e941735	College Academic Building
+323	4bf58dd8d48988d18d941735	Gaming Cafe
+324	4f04b1572fb6e1c99f3db0bf	Storage Facility
+325	4bf58dd8d48988d193941735	Park
+326	4bf58dd8d48988d1fb931735	Hotel
+327	4f04b25d2fb6e1c99f3db0c0	Travel Lounge
+328	4eb1bdf03b7b55596b4a7491	Camera Store
+329	4e51a0c0bd41d3446defbb2e	Ferry
+330	4bf58dd8d48988d1a9941735	College Academic Building
+331	4f4533814b9074f6e4fb0107	Nursery School
+332	4eb1d4dd4b900d56c88a45fd	River
+333	4bf58dd8d48988d19b941735	College Academic Building
+334	4bf58dd8d48988d128941735	Office
+335	4d4b7105d754a06376d81259	Nightlife Spot
+336	4bf58dd8d48988d1ba941735	College Stadium
+337	4bf58dd8d48988d12f951735	Hotel
+338	4eb1c0253b7b52c0e1adc2e9	Garden Center
+339	4eb1bfa43b7b52c0e1adc2e8	Peruvian Restaurant
+340	4bf58dd8d48988d173941735	Theater
+341	4f4533814b9074f6e4fb0106	Middle School
+342	4bf58dd8d48988d1c6941735	Scandinavian Restaurant
+343	4bf58dd8d48988d191941735	Science Museum
+344	4d1cf8421a97d635ce361c31	Tanning Salon
+345	4eb1bea83b7b6f98df247e06	Factory
+346	4d4b7105d754a06372d81259	College & University
+347	4bf58dd8d48988d131941735	Spiritual Center
+348	4bf58dd8d48988d107941735	Argentinian Restaurant
+349	4bf58dd8d48988d19f941735	College Academic Building
+350	4f4531b14b9074f6e4fb0103	Medical Center
+351	4e4c9077bd41f78e849722f9	Bike Rental / Bike Share
+352	4def73e84765ae376e57713a	Portuguese Restaurant
+353	4bf58dd8d48988d1f8931735	Hotel
+354	4bf58dd8d48988d101941735	Gym / Fitness Center
+355	4fceea171983d5d06c3e9823	Aquarium
+356	4bf58dd8d48988d17a941735	Cajun / Creole Restaurant
+357	4e0e22f5a56208c4ea9a85a0	Distillery
+358	4f04ad622fb6e1c99f3db0b9	Newsstand
+359	50328a8e91d4c4b30a586d6c	Office
+360	4e52d2d203646f7c19daa8ae	Animal Shelter
+361	503288ae91d4c4b30a586d67	Afghan Restaurant
+362	4eb1daf44b900d56c88a4600	Fair
+363	50aaa4314b90af0d42d5de10	Other Great Outdoors
+364	4edd64a0c7ddd24ca188df1a	Fish & Chips Shop
+365	4bf58dd8d48988d126951735	Video Store
+366	4bf58dd8d48988d158941735	Swiss Restaurant
+367	4f04b08c2fb6e1c99f3db0bd	Miscellaneous Shop
+368	4bf58dd8d48988d13a941735	Temple
+369	5032850891d4c4b30a586d62	Bank
+370	5032848691d4c4b30a586d61	Other Great Outdoors
+371	4bf58dd8d48988d1bb941735	College Stadium
+372	4f4532974b9074f6e4fb0104	Shop & Service
+373	4f04ae1f2fb6e1c99f3db0ba	Car Wash
+374	4bf58dd8d48988d19c941735	College Academic Building
+375	4bf58dd8d48988d105941735	Gym / Fitness Center
+376	4f4530164b9074f6e4fb00ff	Travel & Transport
+377	5032897c91d4c4b30a586d69	Pet Service
+378	4eb1d4d54b900d56c88a45fc	Other Great Outdoors
+379	4bf58dd8d48988d19d941735	College Academic Building
+380	4bf58dd8d48988d141941735	Sorority House
+381	4bf58dd8d48988d1b6941735	College Stadium
+382	4eb1d80a4b900d56c88a45ff	Shrine
+383	4bf58dd8d48988d1e9941735	Ski Area
+384	5032856091d4c4b30a586d63	Office
+385	4bf58dd8d48988d1b4941735	College Stadium
+386	503289d391d4c4b30a586d6a	Gym / Fitness Center
+387	4bf58dd8d48988d1b8941735	College Stadium
+388	4bf58dd8d48988d1f0941735	Internet Cafe
+389	4eb1c0ed3b7b52c0e1adc2ea	Ski Area
+390	4bf58dd8d48988d1ec941735	Ski Area
+391	5032833091d4c4b30a586d60	Motorcycle Shop
+392	4bf58dd8d48988d1ea941735	Ski Area
+393	4bf58dd8d48988d1eb941735	Ski Area
+394	4f04b10d2fb6e1c99f3db0be	Music School
+395	4bf58dd8d48988d1de941735	Other Great Outdoors
+396	4f452cd44b9081a197eba860	Athletic & Sport
+397	4eb1c0f63b7b52c0e1adc2eb	Ski Area
+398	4eb1bdde3b7b55596b4a7490	Photography Lab
+399	4bf58dd8d48988d1ef931735	Airport
