@@ -1,10 +1,12 @@
 library(stringr)
 
+lct <- Sys.getlocale("LC_TIME"); Sys.setlocale("LC_TIME", "C")
+
 rawPath <- "./data/dataset_tsmc2014/dataset_TSMC2014_NYC.txt"
 rawColumns <- c("UserId","VenueId","VenueCategoryId","VenueCategory","latitude","longitude","timezoneOffset","utcTimestamp")
 
-prepareData <- function(path = rawPath, columns = rawColumns) {
-  data <- read.table(path, sep="\t", stringsAsFactors = TRUE)
+prepareData <- function(path = rawPath, columns = rawColumns, sep = "\t") {
+  data <- read.table(path, sep=sep, stringsAsFactors = TRUE)
   colnames(data) <- columns
   
   # Add date-time from string based timestamp field
