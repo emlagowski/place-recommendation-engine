@@ -1,9 +1,0 @@
-lhs                                  rhs                                 support confidence     lift
-1 <{"Home -private-=super_low"}>    => <{"Home -private-=super_low"}>    0.2677747  0.5311355 1.053516
-2 <{"Home -private-=super_low"},
-   {"Home -private-=super_low"}>    => <{"Home -private-=super_low"}>    0.1791320  0.6689655 1.326904
-3 <{"Home -private-=super_low"},
-   {"Home -private-=super_low"},
-   {"Home -private-=super_low"}>    => <{"Home -private-=super_low"}>    0.1191136  0.6649485 1.318936
-4 <{"Gym - Fitness Center=medium"}> => <{"Gym - Fitness Center=medium"}> 0.1108033  0.4379562 1.731046
-5 <{"Office=low"}>                  => <{"Office=low"}>                  0.1080332  0.5467290 2.766857 

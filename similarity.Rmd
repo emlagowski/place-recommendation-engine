@@ -1,0 +1,73 @@
+---
+title: "Users similarity"
+output: html_notebook
+---
+
+Kroki do zrobienia:
+- wczytanie danych sekwencyjnych
+- zliczenie wystąpień kategorii per użytkownik
+- macierz użytkownik-kategoria
+- obliczenie podobieństwa kosinusowego pomiędzy użytkownikami
+- znalezienie dla każdego użytkownika N najbardziej podobnych użytkowników (z wartościa podobieństwa)
+
+```{r}
+source("R/init.R")
+library(plyr)
+library(stringr)
+library(reshape2)
+library(lsa)
+
+generatedData <- function() {
+  data <- read.table("./data/generated_t1.csv", sep=",", stringsAsFactors = TRUE)
+  colnames(data) <- c("UserId", "timestamp", "VenueCategory", "VenueCategoryId")
+  # W zbiorze danych znaleziono powielające się checkiny z tego samego timestampa dla tego samego użytkownika
+  # Usuwanie duplikatów z eventID
+  mergedColumn <- paste(data$UserId, data$timestamp, sep="=")
+  data_wo_duplicates <- data[!duplicated(mergedColumn), ]
+  data_wo_duplicates$VenueCategory <- as.character(data_wo_duplicates$VenueCategory)
+  data_wo_duplicates$UserId <- as.integer(data_wo_duplicates$UserId)
+  data_wo_duplicates$timestamp <- as.integer(data_wo_duplicates$timestamp / 1000)
+  data_wo_duplicates
+}
+
+data <- as.data.frame(generatedData())
+#data <- prepareData()
+data$UserVenueCategory <- paste(data$UserId, data$VenueCategory, sep="=")
+cc <- count(data, "UserVenueCategory")
+dd <- str_split_fixed(cc$UserVenueCategory, "=", 2)
+ee <- as.data.frame(dd)
+ee$count <- cc$freq
+
+matrix <- acast(ee, V1~V2, value.var="count")
+matrix[is.na(matrix)] <- 0
+
+df <- as.data.frame(matrix)
+
+sim <- cosine(t(matrix))
+mean(sim)
+median(sim)
+quantile(sim, probs = c(.25, .5, .75))
+write.table(sim, "similarityMatrix.csv", sep = ",", quote = FALSE)
+
+simDf <- as.data.frame(sim)
+head(simDf, 10)
+  
+getTopSimilarUserData <- function(userId, tresholdFunction) {
+  x <- apply(simDf,1,function(x)paste0(names(sort(-rank(x))), paste0(",", -sort(-x))))
+  
+  firstUser <- as.data.frame(x[,userId])
+  firstUser <- as.data.frame(str_split_fixed(firstUser[,1], ",", 2))
+  firstUser$V2 <- as.numeric(levels(firstUser$V2)[firstUser$V2])
+  
+  choosedUsers <- as.list(firstUser[firstUser$V2 > tresholdFunction(firstUser$V2), 1])
+  
+  data[data$UserId %in% choosedUsers,]
+}
+  
+dataFiltered <- getTopSimilarUserData(1, function(x) {
+  quantile(x, 0.75)[[1]]
+})
+```
+
+
+

@@ -69,15 +69,14 @@ Keywords:
 
 # Dane ze wszystkich miast
 
-```{r}
+```{r} 
+# tsmc2014
 source("R/init.R")
 source("R/categories.R")
 source("R/venues.R")
 source("R/minerules.R")
 
-lct <- Sys.getlocale("LC_TIME"); Sys.setlocale("LC_TIME", "C")
-
-rawNycData <- prepareData()
+rawNycData <- prepareData() # dataFiltered
 
 # Get all unique pairs of venue and category
 #uniqueVenueWithCategoryById <- unique(rawNycData[c("VenueId", "VenueCategoryId")])
@@ -89,12 +88,8 @@ rawNycData <- prepareData()
 #                                   by.x = c('VenueId', 'VenueCategoryId'), 
 #                                   by.y = c('VenueId', 'VenueCategoryId'), 
 #                                   all.x = TRUE)
-#categoriesToFilter <- c(
-#  '4e67e38e036454776db1fb3a',  # Residence
-#  '4d4b7105d754a06379d81259',  # Travel & Transport
-#  '4bf58dd8d48988d124941735'   # Office
-#  )
-#rawNycDataFiltered <- removeCategories(rawNycData, categories, categoriesToFilter)
+
+rawNycData <- readAndFilterCategories(rawNycData)
 
 #rawNycDataFiltered$VenueCategory <- NULL
 #mergedNycWithCategories <- merge(x = rawNycDataFiltered, y = venueWithCategoryWithApiData,
@@ -110,7 +105,46 @@ sequences <- readTransactions()
 ```
 
 ```{r}
-rawRules <- mineRules(sequences, support = 0.1, confidence = 0.1, mingap = minute, maxgap = 30 * day)
+library(plyr)
+categoryFreq <- count(rawNycData, "VenueCategory")
+categoryFreq <- categoryFreq[order(categoryFreq$freq, decreasing = TRUE),]
+head(categoryFreq, 100)
+```
+
+```{r} 
+# tist2015 filtered
+#221021	4a85b1b3f964a520eefe1fe3	1333476008000	Coffee Shop
+source("R/init.R")
+source("R/minerules.R")
+
+path <- "./data/dataset_TIST2015/filtered_checkins_from_Europe.txt"
+data <- read.table(path, sep="\t", stringsAsFactors = TRUE)
+colnames(data) <- c("UserId","VenueId","timestamp", "VenueCategory")
+data$VenueCategory <- str_replace_all(data$VenueCategory, '[(\\/&)]', '-')
+data$timestamp <- as.integer(data$timestamp / 1000)
+# W zbiorze danych znaleziono powielające się checkiny z tego samego timestampa dla tego samego użytkownika
+# Usuwanie duplikatów z eventID
+mergedColumn <- paste(data$UserId, data$timestamp, sep="=")
+data_wo_duplicates <- data[!duplicated(mergedColumn), ]
+
+transactionsPath <- "./data/dataset_TIST2015/transactions_workfile.data"
+data_wo_duplicates <- data_wo_duplicates[order(data_wo_duplicates$UserId, data_wo_duplicates$timestamp),]
+#filtered_columns <- data_wo_duplicates[, c('UserId', 'timestamp', 'VenueCategory')]
+#sapply(filtered_columns, class)
+#filtered_columns[] <- lapply(filtered_columns, factor)
+#sequences <- as(filtered_columns, 'transactions')
+#transactionInfo(sequences)$sequenceID <- data_wo_duplicates$UserId
+#transactionInfo(sequences)$eventID <- data_wo_duplicates$timestamp
+#transactionInfo(sequences)$transactionID <- NULL
+#sequences@itemInfo$labels <- data_wo_duplicates$VenueCategory
+#sequences@itemInfo$variables <- NULL
+#sequences@itemInfo$levels <- NULL
+writeTransactions(data_wo_duplicates, c('UserId', 'timestamp', 'VenueCategory'), transactionsPath)
+sequences <- readTransactions(transactionsPath)
+```
+
+```{r}
+rawRules <- mineRules(sequences, support = 0.01, confidence = 0.01, mingap = second, maxgap = day)
 
 rawRules <- removeRightEqualToLeft(rawRules)
 
@@ -120,12 +154,20 @@ rawRules <- sort(rawRules, by=c('lift', 'support', 'confidence'))
 
 #rules.no_redundant <- rules.noSubsetOnRight[is.redundant(rules.noSubsetOnRight)]
 
-#inspect(head(rawRules, 100))
+inspect(head(rawRules, 100))
 
 #rules <- subset(rawRules, rhs(rawRules) %in% c("\"University\""))
 #rules <- subset(rawRules, rhs(rawRules) %in% c("\"Coffee Shop\""))
 
-inspect(head(rawRules, 100))
-length(rules)
+#inspect(head(rawRules, 100))
+#summary(rawRules)
+#as(rawRules, "data.frame")
+
+
+
+#zz <- file("./results/cspade_result.txt", open = "wt")
+#sink(zz)
+#inspect(rawRules)
+#sink()
 
 ```

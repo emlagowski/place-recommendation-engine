@@ -1,4 +1,0 @@
-lhs             rhs             support confidence     lift
- 1 <{"Subway"}> => <{"Subway"}> 0.14681440  0.4297297 1.257831
- 2 <{"Subway"},
-    {"Subway"}> => <{"Subway"}> 0.07479224  0.5094340 1.491127 

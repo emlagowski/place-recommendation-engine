@@ -31,7 +31,7 @@ readTransactions <- function(path = transactionsPath) {
 
 mineRules <- function(inputSequences, support, confidence, mingap = second, maxgap = day, maxsize = 10, maxlen = 10) {
   seqParam = new ("SPparameter", support = support, maxsize = maxsize, mingap = mingap, maxgap = maxgap, maxlen = maxlen)
-  patSeq = cspade(inputSequences, seqParam, control = list(verbose = TRUE, tidLists = FALSE, summary= TRUE))
+  patSeq = cspade(inputSequences, seqParam, control = list(verbose = FALSE, tidLists = FALSE, summary= FALSE))
   #summary(patSeq)
   #odkrycie reguł
   seqRules = ruleInduction(patSeq, confidence = confidence)

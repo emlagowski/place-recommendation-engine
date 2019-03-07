@@ -60,7 +60,7 @@ removeCategories <- function(inputDf, inputCategories, categoryIds) {
   df <- merge(x = df, y = justCategoryWithParent, by.x = 'VenueCategoryId', by.y = 'joinVenueCategoryId')
   
   times <- 0
-  while (times <= 6) {
+  while (times <= 6) { # 6 is highest level deep into category hierarchy
     colnames(df)[which(names(df) == "joinParentVenueCategoryId")] <- "prevJoinParentVenueCategoryId"
     df <- merge(x = df, y = justCategoryWithParent, by.x = 'prevJoinParentVenueCategoryId', by.y = 'joinVenueCategoryId', all.x = TRUE)
     df <- subset(df, !(df$'prevJoinParentVenueCategoryId' %in% categoryIds))
@@ -70,4 +70,16 @@ removeCategories <- function(inputDf, inputCategories, categoryIds) {
   
   df$joinParentVenueCategoryId <- NULL
   return(df)
+}
+
+defaultCategoriesToFilter <- c(
+  '4e67e38e036454776db1fb3a',  # Residence
+  '4d4b7105d754a06379d81259',  # Travel & Transport
+  '4bf58dd8d48988d124941735'   # Office
+)
+
+readAndFilterCategories <- function(inputDf, categoryIds = defaultCategoriesToFilter) {
+  categories <- readCategories()
+  dfWithFilteredCategories <- removeCategories(inputDf, categories, categoryIds)
+  return (dfWithFilteredCategories)
 }

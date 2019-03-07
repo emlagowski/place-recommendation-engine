@@ -2,7 +2,7 @@ library(stringr)
 
 lct <- Sys.getlocale("LC_TIME"); Sys.setlocale("LC_TIME", "C")
 
-rawPath <- "./data/dataset_tsmc2014/dataset_TSMC2014_NYC.txt"
+rawPath <- "../dane/dataset_tsmc2014/dataset_TSMC2014_NYC.txt"
 rawColumns <- c("UserId","VenueId","VenueCategoryId","VenueCategory","latitude","longitude","timezoneOffset","utcTimestamp")
 
 prepareData <- function(path = rawPath, columns = rawColumns, sep = "\t") {
